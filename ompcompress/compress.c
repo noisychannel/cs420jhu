@@ -34,8 +34,8 @@ int CompressFile ( char* inf, char* outf )
   gzi = gzopen(inf, "rb");
   gzo = gzopen(outf, "wb");
   do {
-    len = gzread ( inf, gzbuf, GZ_READLEN );
-    gzwrite ( outf, gzbuf, len );
+    len = gzread ( gzi, gzbuf, GZ_READLEN );
+    gzwrite ( gzo, gzbuf, len );
   } while ( len == GZ_READLEN );
 
   gzclose(gzi);
