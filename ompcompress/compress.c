@@ -16,8 +16,7 @@
 #include <limits.h>
 #include <zlib.h>
 
-#define GZ_READLEN 1024 
-unsigned char gzbuf[GZ_READLEN];
+#define GZ_READLEN 4096 
 
 /*------------------------------------------------------------------------------
 * Name:  CompressFile
@@ -27,6 +26,8 @@ int CompressFile ( char* inf, char* outf )
 {
   int len;
   gzFile gzi, gzo;
+
+  unsigned char gzbuf[GZ_READLEN];
   
   printf ( "Compressing %s to %s\n", inf, outf );
   strcat ( outf, ".gz" );
