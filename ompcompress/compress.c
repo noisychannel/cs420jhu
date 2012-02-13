@@ -92,7 +92,7 @@ int CompressTree ( char* inname, char* outname )
   }
   else
   {
-    printf ( "Ignoring other file %s\n", filenames[i]->d_name );
+    printf ( "Ignoring other file %s\n", inname );
   }
 
   return 0;
