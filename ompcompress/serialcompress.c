@@ -40,8 +40,8 @@ int main ( int argc, char** argv )
   }
 
   /* Get realpaths */
-  res = realpath ( argv[1], inpath );
-  res = realpath ( argv[2], outpath );
+  //res = realpath ( argv[1], inpath );
+  //res = realpath ( argv[2], outpath );
 
   // Make the output directory
   rc = mkdir ( outpath, S_IRUSR | S_IWUSR | S_IXUSR );
@@ -50,6 +50,9 @@ int main ( int argc, char** argv )
     printf ("Failed to mkdir %s.\n", argv[2], errno, strerror(errno) );
     exit (-1);
   }
+  /* Get realpaths */
+  res = realpath ( argv[1], inpath );
+  res = realpath ( argv[2], outpath );
 
   // Check to make sure input directory exists
   if ( 0 != chdir ( inpath ))
