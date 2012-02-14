@@ -44,7 +44,7 @@ int main ( int argc, char** argv )
   //res = realpath ( argv[2], outpath );
 
   // Make the output directory
-  rc = mkdir ( outpath, S_IRUSR | S_IWUSR | S_IXUSR );
+  rc = mkdir ( argv[2], S_IRUSR | S_IWUSR | S_IXUSR );
   if ( rc != 0 )
   {
     printf ("Failed to mkdir %s.\n", argv[2], errno, strerror(errno) );
