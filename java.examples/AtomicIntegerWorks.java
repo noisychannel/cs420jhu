@@ -17,7 +17,8 @@ class AtomicIntegerWorks implements Runnable
   int thread_id;    // Variable containing specific id of this thread.
   
   // Create some variables for testing.
-  static AtomicInteger sharedatomint;
+  static AtomicInteger sharedatomint = new AtomicInteger ();
+
  
   // Run: overides Runnabale.Run, thread entry point
   public void run ()
@@ -32,7 +33,6 @@ class AtomicIntegerWorks implements Runnable
   AtomicIntegerWorks ( int id ) 
   {
     this.thread_id = id;
-    sharedatomint = new AtomicInteger ( );
   }
 
   public static void main ( String[] args )
@@ -42,9 +42,6 @@ class AtomicIntegerWorks implements Runnable
       System.out.println ("Usage: AtomicIntegerWorks #threads");
       return;
     } 
-
-    // Can't initialize so set
-//    sharedatomint.set(0);
 
     // Get the number of threads we are going to run from the command line
     int numthreads = Integer.parseInt ( args[0] );

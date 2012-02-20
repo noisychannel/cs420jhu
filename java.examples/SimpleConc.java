@@ -2,7 +2,7 @@
 //
 //  class: SimpleConc
 //
-//   Most basic program that creates multiple threads that all do different stuff.
+//   Most basic program with multiple threads that all do different stuff.
 //
 ////////////////////////////////////////////////////////////////////////////////
 
