@@ -72,11 +72,12 @@ int CompressTree ( char* inname, char* outname )
     filecount = scandir ( inname, &filenames, NULL, alphasort );
 
     /* Look at all files in this directory */
-    // RBTODO Hack to get rid of . and .. ??better way?? 
-    //   starting at 2 instead of 0, . is 0 .. is 1
     /* Need to ignore . and .. */
-    for ( i=2; i<filecount; i++ )
+    for ( i=0; i<filecount; i++ )
     { 
+      //ignore . and .. 
+      if(strcmp(filenames[i]->d_name,".") == 0 || strcmp(filenames[i]->d_name,"..") == 0)
+	continue; 
       /* Call recursively if it's a directory */
       char innext[PATH_MAX];    
       char outnext[PATH_MAX];   
@@ -91,7 +92,7 @@ int CompressTree ( char* inname, char* outname )
   }
   else
   {
-    printf ( "Ignoring other file %s\n", filenames[i]->d_name );
+    printf ( "Ignoring other file %s\n", inname );
   }
 
   return 0;
