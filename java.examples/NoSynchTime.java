@@ -1,30 +1,30 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
-//  class: SynchronizedBug
+//  class: NoSynchTime
 //
-//   Simple concurrent Java program demonstrating
-//      how to inccorrectly use synchronized on the this object.
+//  This incorrect program is used to measure baseline performance of 
+//   the task with no synchronization overhead.
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-class SynchronizedBug implements Runnable
+class NoSynchTime implements Runnable
 {
   int thread_id;    // Variable containing specific id of this thread.
   
   // Create some variables for testing.
-  static int sharedsynchvar = 0;
+  static  int sharedvar = 0;
  
   // Run: overides Runnabale.Run, thread entry point
   public void run ()
   {
     for ( int i=0; i<10000000; i++ )
     {
-      synchronized(this){sharedsynchvar++;}
+      sharedvar++;
     }
   }
 
   // Constructor: set thread id
-  SynchronizedBug ( int id ) 
+  NoSynchTime ( int id ) 
   {
     this.thread_id = id;
   }
@@ -33,7 +33,7 @@ class SynchronizedBug implements Runnable
   {
     if ( 1 != args.length ) 
     {
-      System.out.println ("Usage: SynchronizedBug #threads");
+      System.out.println ("Usage: NoSynchTime #threads");
       return;
     } 
 
@@ -43,10 +43,10 @@ class SynchronizedBug implements Runnable
     // Array to hold references to thread objects
     Thread[] threads = new Thread[numthreads];
 
-    // create and start specified thread objects of class SynchronizedBug
+    // create and start specified thread objects of class NoSynchTime
     for ( int i=0; i<numthreads; i++ )
     {
-      threads[i] = new Thread ( new SynchronizedBug(i) );
+      threads[i] = new Thread ( new NoSynchTime(i) );
       threads[i].start();
     }
 
@@ -64,6 +64,8 @@ class SynchronizedBug implements Runnable
         return;
       }
     }
-    System.out.println("Shared synchronized variable = " + sharedsynchvar);
+    System.out.println("Shared volatile variable = " + sharedvar);
   }
 }
+
+

@@ -1,19 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
-//    $Id: SynchronizedWorks.java,v 1.2 2010-10-18 14:41:08 randal Exp $
-//
-//    Randal C. Burns
-//    Department of Computer Science
-//    Johns Hopkins University
-//
-//    $Source: /fshssl.home/randal/repository/class/420.2009/lectures/lec05/SynchronizedWorks.java,v $
-//    $Date: 2010-10-18 14:41:08 $        
-//    $Revision: 1.2 $
-//
-////////////////////////////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////////////////////////////
-//
 //  class: SynchronizedWorks
 //
 //   Simple concurrent Java program demonstrating basic features of
@@ -35,7 +21,7 @@ class SynchronizedWorks implements Runnable
   {
     for ( int i=0; i<10000000; i++ )
     {
-      synchronized(SynchronizedWorks.class){sharedsynchvar++;}
+      synchronized(SynchronizedWorks.class){++sharedsynchvar;}
     }
   }
 
@@ -83,18 +69,3 @@ class SynchronizedWorks implements Runnable
     System.out.println("Shared synchronized variable = " + sharedsynchvar);
   }
 }
-
-
-////////////////////////////////////////////////////////////////////////////////
-//
-//  Revsion History 
-//    
-//  $Log: SynchronizedWorks.java,v $
-//  Revision 1.2  2010-10-18 14:41:08  randal
-//  Checkin.
-//
-//  Revision 1.1  2009/10/08 15:11:49  randal
-//  Sync/checkin.  Move to rio.
-//
-//
-////////////////////////////////////////////////////////////////////////////////

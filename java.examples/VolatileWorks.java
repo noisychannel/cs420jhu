@@ -30,7 +30,6 @@ class VolatileWorks implements Runnable
     {
       sharedvolvar++;
     }
-
   }
 
   // Constructor: set thread id
