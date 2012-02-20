@@ -1,0 +1,24 @@
+
+CS 320/420 Parallel Programming 
+
+Example programs used in the Concurrent Java lecture
+
+** SimpleConc.java:
+
+    Simplest program that creates multiple threads.
+
+** VolatileWorks.java
+  
+    Program that demonstrates volatile variables.
+    
+** VolatileTime.java
+  
+    Version of VolatileWorks that only uses Volatile variables.
+    This is suitable for comparing timing with SynchronizedWork
+    and AtomicWorks
+
+** AtomicIntegerWorks.java
+
+    Program that demonstrates java atomics
+  
+

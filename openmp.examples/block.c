@@ -20,7 +20,7 @@ main ()
   { 
     int tid = omp_get_thread_num();
     printf("OMP Thread# %d\n", tid);
-    if ( 0 == tid )
+    if ( 4 == tid )
     {
       printf ("Master says that there are %d threads\n", omp_get_num_threads());
     }
