@@ -60,33 +60,6 @@ typedef struct
 *-----------------------------------------------------------------------------*/
 __global__ void NNSmoothKernel ( float* pFieldIn, float* pFieldOut, size_t pitch, CUDAGrid cg )
 { 
-  // compute the halfwidth-1 of the kernel
-  unsigned koffset = (cg.kernelWidth-1)/2;
-
-  // The grid indexes start from 
-  unsigned xindex = ( blockIdx.x * blockDim.x + threadIdx.x) + koffset; 
-  unsigned yindex = ( blockIdx.y * blockDim.y + threadIdx.y) + koffset; 
-   
-  // pitch is in bytes, figure out the number of elements for addressing
-  unsigned pitchels = pitch/sizeof(float);
-  
-  // Variable to accumulate the smoothed value
-  float value = 0.0;
-
-  // Get the value from the kernel
-  for ( unsigned j=0; j<cg.kernelWidth; j++ )
-  {
-    for ( unsigned i=0; i<cg.kernelWidth; i++ )
-    {
-      value +=  pFieldIn [ pitchels*(yindex - koffset + j) + xindex - koffset + i ];
-    }
-  }
-  
-  // Divide by the number of elements in the kernel
-  value /= cg.kernelWidth*cg.kernelWidth;
-
-  // Write the value out 
-  pFieldOut [ yindex*pitchels + xindex ] = value;
 } 
 
 
@@ -122,9 +95,8 @@ bool SmoothField ( float* pHostFieldIn, float *pHostFieldOut, CUDAGrid cg )
   gettimeofday ( &tb, NULL );
 
   // Construct a 2d grid/block
-  const dim3 DimBlock ( cg.blockWidth, cg.blockWidth );
-  const dim3 DimGrid ( (cg.gridWidth-(cg.kernelWidth-1))/cg.blockWidth , 
-                       (cg.gridWidth-(cg.kernelWidth-1))/cg.blockWidth );
+  const dim3 DimBlock .....TODO
+  const dim3 DimGrid .....TODO
 
   // Invoke the kernel
   NNSmoothKernel <<<DimGrid,DimBlock>>> ( pDeviceFieldIn, pDeviceFieldOut, pitch, cg ); 
