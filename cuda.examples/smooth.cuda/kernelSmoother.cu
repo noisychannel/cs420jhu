@@ -60,6 +60,9 @@ typedef struct
 *-----------------------------------------------------------------------------*/
 __global__ void NNSmoothKernel ( float* pFieldIn, float* pFieldOut, size_t pitch, CUDAGrid cg )
 { 
+  // pitch is in bytes, figure out the number of elements for addressing
+  unsigned pitchels = pitch/sizeof(float);
+
 } 
 
 
@@ -105,7 +108,7 @@ bool SmoothField ( float* pHostFieldIn, float *pHostFieldOut, CUDAGrid cg )
 
   // Retrieve the results
   cudaMemcpy2D(pHostFieldOut, cg.gridWidth*sizeof(float), 
-               pDeviceFieldOut, pitch, cg.gridWidth*sizeof(float), cg.gridWidth,
+               pDeviceFieldOut, pitchout, cg.gridWidth*sizeof(float), cg.gridWidth,
                cudaMemcpyDeviceToHost); 
 
   gettimeofday ( &td, NULL );
