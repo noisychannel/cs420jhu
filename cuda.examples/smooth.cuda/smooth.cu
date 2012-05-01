@@ -15,7 +15,7 @@
 *        k smooths box with corners [x-k,y-k] to [x+k,y+k]
 *
 *  The smoothed region is only defined for the interior that has the kernel
-*   defined inside the boundary, e.g. for gridWidth=10, halfWidth=2 the
+*   defined inside the boundary, e.g. for dataWidth=10, halfWidth=2 the
 *   region from 2,2 to 7,7 will be smoothed. 
 *
 ********************************************************************************/
@@ -27,6 +27,7 @@
 *  This file shows how to use many features of CUDA:
 *     2d grids
 *     pitch allocation
+*     shared memory
 *
 ********************************************************************************/
 
@@ -40,25 +41,28 @@
 #include <cuda.h>
 
 // Data is of size dataWidth * dataWidth
-const unsigned int dataWidth = 4112;
+//const unsigned int dataWidth = 4112;
 
 // Parameter to express the smoothing kernel halfwidth
-const unsigned int halfWidth = 8;
+//const unsigned int halfWidth = 8;
 
 // Size of the CUDA threadBlock
-const unsigned int blockWidth = 16;
-
+//const unsigned int blockWidth = 16;
 
 /* Small values good for testing */
 
 // Data is of size dataWidth * dataWidth
-//const unsigned int dataWidth = 8;
+const unsigned int dataWidth = 14;
 
 // Parameter to express the smoothing kernel halfwidth
-//const unsigned int halfWidth = 1;
+const unsigned int halfWidth = 1;
+const unsigned int kernelWidth = halfWidth*2+1;
 
 // Size of the CUDA threadBlock
-//const unsigned int blockWidth = 2;
+const unsigned int blockWidth = 4;
+
+
+
 
 
 /*------------------------------------------------------------------------------
@@ -66,32 +70,75 @@ const unsigned int blockWidth = 16;
 * Action:  The CUDA kernel that implements kernel smoothing.
 *             Yuck, that's two senses of kernel.
 *-----------------------------------------------------------------------------*/
-__global__ void NNSmoothKernel ( float* pFieldIn, float* pFieldOut, size_t pitch, unsigned int halfwidth )
+__global__ void NNSmoothKernel ( float* pFieldIn, float* pFieldOut, size_t pitch )
 { 
+  extern __shared__ float shared[][blockWidth+kernelWidth-1];
+
   // pitch is in bytes, figure out the number of elements for addressing
   unsigned pitchels = pitch/sizeof(float);
 
-  // The grid indexes start from 
-  unsigned xindex = ( blockIdx.x * blockDim.x + threadIdx.x); 
-  unsigned yindex = ( blockIdx.y * blockDim.y + threadIdx.y); 
-   
+  // compute the halfwidth-1 of the kernel
+  unsigned koffset = (kernelWidth-1)/2;
+
+
+  // Construct the 2d shared memory array it needs to be blockWidth+(kernelWidth-1)/2 square
+  // Each node loads one element
+  shared[threadIdx.x][threadIdx.y] = 
+    pFieldIn [  (blockIdx.y * blockDim.y + threadIdx.y) * pitchels 
+                   +  blockIdx.x * blockDim.x + threadIdx.x ];
+
+  // And determines if it needs to load it's x-neigbor
+  if ( threadIdx.x < kernelWidth -1 )
+  {
+    shared[threadIdx.x + blockWidth][threadIdx.y] = 
+      pFieldIn [  (blockIdx.y * blockDim.y + threadIdx.y) * pitchels 
+                     +  blockIdx.x * blockDim.x + threadIdx.x + blockWidth ];
+  }
+
+  // And determines if it needs to load it's y-neigbor
+  if ( threadIdx.y < kernelWidth -1 )
+  {
+    shared[threadIdx.x][threadIdx.y + blockWidth] = 
+      pFieldIn [  (blockIdx.y * blockDim.y + threadIdx.y + blockWidth) * pitchels 
+                     +  blockIdx.x * blockDim.x + threadIdx.x];
+  }
+
+  // And determines if it needs to load it's xy-neigbor
+  if ( ( threadIdx.y < kernelWidth -1 ) && ( threadIdx.x < kernelWidth -1 ))
+  {
+    shared[threadIdx.x + blockWidth][threadIdx.y + blockWidth] = 
+      pFieldIn [  (blockIdx.y * blockDim.y + threadIdx.y + blockWidth) * pitchels 
+                     +  blockIdx.x * blockDim.x + threadIdx.x + blockWidth];
+  }
+
+  __syncthreads();
+
+  pFieldOut [ (threadIdx.y+koffset)*pitchels + threadIdx.x+koffset ] = shared [threadIdx.x][threadIdx.y];
+
+
   // Variable to accumulate the smoothed value
   float value = 0.0;
 
+  // The grid indexes start from 
+  unsigned xindex = ( blockIdx.x * blockDim.x + threadIdx.x) + koffset; 
+  unsigned yindex = ( blockIdx.y * blockDim.y + threadIdx.y) + koffset; 
+
   // Get the value from the kernel
-  for ( unsigned j=0; j<=2*halfwidth; j++ )
+  for ( unsigned j=0; j<kernelWidth; j++ )
   {
-    for ( unsigned i=0; i<=2*halfwidth; i++ )
+    for ( unsigned i=0; i<kernelWidth; i++ )
     {
-      value +=  pFieldIn [ pitchels*(yindex + j) + xindex + i ];
+      value += shared [threadIdx.x+i] [threadIdx.y+j];
     }
   }
   
   // Divide by the number of elements in the kernel
-  value /= float((2*halfWidth+1)*(2*halfWidth+1));
+  value /= kernelWidth*kernelWidth;
 
   // Write the value out 
-  pFieldOut [ (yindex+halfwidth)*pitchels + xindex+halfwidth ] = value;
+  pFieldOut [ yindex*pitchels + xindex ] = value;
+
+
 } 
 
 
@@ -109,8 +156,8 @@ bool SmoothField ( float* pHostFieldIn, float *pHostFieldOut )
   struct timeval ta, tb, tc, td;
 
   // Check the grid dimensions and extract parameters.  See top description about restrictions
-//  printf ( "%d, %d, %d\n", datWidth, halfWidth, blockSize
-  assert(((dataWidth-2*halfWidth) % blockWidth) == 0 );
+//  assert ((( kernelWidth -1 )%2) == 0 );     // Width is odd
+//  assert((gridWidth-(kernelWidth-1) % blockWidth == 0 );
 
   gettimeofday ( &ta, NULL );
 
@@ -127,19 +174,18 @@ bool SmoothField ( float* pHostFieldIn, float *pHostFieldOut )
 
   // Construct a 2d grid/block
   const dim3 DimBlock ( blockWidth, blockWidth );
-  const dim3 DimGrid ( (dataWidth-(2*halfWidth))/blockWidth, 
-                       (dataWidth-(2*halfWidth))/blockWidth );
-
-
+  const dim3 DimGrid ( (dataWidth-(kernelWidth-1))/blockWidth , 
+                       (dataWidth-(kernelWidth-1))/blockWidth );
+  const unsigned shmemSize = ( blockWidth + kernelWidth -1 ) * ( blockWidth + kernelWidth -1 ) * sizeof (float);
 
   // Invoke the kernel
-  NNSmoothKernel <<<DimGrid,DimBlock>>> ( pDeviceFieldIn, pDeviceFieldOut, pitch, halfWidth ); 
+  NNSmoothKernel <<<DimGrid,DimBlock, shmemSize>>> ( pDeviceFieldIn, pDeviceFieldOut, pitch ); 
 
   gettimeofday ( &tc, NULL );
 
   // Retrieve the results
   cudaMemcpy2D(pHostFieldOut, dataWidth*sizeof(float), 
-               pDeviceFieldOut, pitchout, dataWidth*sizeof(float), dataWidth,
+               pDeviceFieldOut, pitch, dataWidth*sizeof(float), dataWidth,
                cudaMemcpyDeviceToHost); 
 
   gettimeofday ( &td, NULL );
@@ -188,7 +234,6 @@ void initField ( unsigned dim, float* pField )
 *-----------------------------------------------------------------------------*/
 int main ()
 {
-
   // Create the input field
   float *field = (float *) malloc ( dataWidth * dataWidth * sizeof(float));
   initField ( dataWidth, field );
@@ -200,27 +245,24 @@ int main ()
   SmoothField ( field, out );
 
   // Print the output field (for debugging purposes.
+  unsigned koffset = (kernelWidth-1)/2;
   for ( unsigned j=0; j< dataWidth; j++ )
   {
     for ( unsigned i=0; i< dataWidth; i++ )
     {
-      if ( ( i >= halfWidth ) && 
-           ( j >= halfWidth ) &&
-           ( i < ( dataWidth - halfWidth )) &&
-           ( j < ( dataWidth - halfWidth )) )
+      if ( ( i >= koffset ) && 
+           ( j >= koffset ) &&
+           ( i < ( dataWidth - koffset )) &&
+           ( j < ( dataWidth - koffset )) )
       {
-        printf ("%4.0f, ", out[j*dataWidth + i]);
+        printf ("%4.4f, ", out[j*dataWidth + i]);
       }
       else
       {
-        printf ("  na, ");
+        printf ("%4.4f, ", 0.0f );
       }
     }  
     printf ("\n");
   }
 
-  // Free malloc'ed fields
-  free(field);
-  free(out);
 }
-
