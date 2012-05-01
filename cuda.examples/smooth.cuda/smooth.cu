@@ -12,7 +12,7 @@
 *  Parameters of note:
 *    gridWidth -- size of the grid is gridWidth^2
 *    blockWidth -- number of processors per block.
-*        must be ((gridWidth-(kernelWidth-1)) % blockWidth == 0 
+*        must be ((gridWidth-(2*halfwidth)) % blockWidth == 0 
 *        i.e. the smoothed regions must be of blocksize increments.
 *    smoothWidth -- region around point x,y to smooth
 *        must be odd, i.e. 2k+1 smooths box with corners (x-k,y-k) to (x+k,y+k)
@@ -22,8 +22,6 @@
 *   region from 2,2 to 7,7 will be smoothed. 
 *
 ********************************************************************************/
-
-// TODO some testing.
 
 /*******************************************************************************
 *
@@ -45,16 +43,17 @@
 #include <cuda.h>
 
 //
-// SmoothGrid: structure to define geometry parameters.
+// CUDAGrid: structure to define the parameters of the CUDA computation.
 //   set one of these up in main()
 //
 typedef struct
 {
   unsigned int gridWidth;
   unsigned int blockWidth;
-} SmoothGrid;
+} CUDAGrid;
 
-unsigned int smoothWidth;
+// Parameter to express the smoothing kernel halfwidth
+unsigned int halfWidth;
 
 
 /*------------------------------------------------------------------------------
@@ -74,7 +73,7 @@ __global__ void NNSmoothKernel ( float* pFieldIn, float* pFieldOut, size_t pitch
 * Name:  SmoothField
 * Action:  Host entry point to kernel smoother
 *-----------------------------------------------------------------------------*/
-bool SmoothField ( float* pHostFieldIn, float *pHostFieldOut, CUDAGrid cg, unsigned int smoothWidth ) 
+bool SmoothField ( float* pHostFieldIn, float *pHostFieldOut, CUDAGrid cg, unsigned int halfwidth ) 
 { 
   float * pDeviceFieldIn = 0;
   float * pDeviceFieldOut = 0;
@@ -84,9 +83,8 @@ bool SmoothField ( float* pHostFieldIn, float *pHostFieldOut, CUDAGrid cg, unsig
   struct timeval ta, tb, tc, td;
 
   // Check the grid dimensions and extract parameters.  See top description about restrictions
-  assert ((( cg.kernelWidth -1 )%2) == 0 );     // Width is odd
   unsigned blockSize = cg.blockWidth * cg.blockWidth;  
-  assert( ((cg.gridWidth-(cg.kernelWidth-1))*(cg.gridWidth-(cg.kernelWidth-1)) % blockSize) == 0 );
+  assert( ((cg.gridWidth-(2*halfwidth))*(cg.gridWidth-(2*halfwidth)) % blockSize) == 0 );
 
   gettimeofday ( &ta, NULL );
 
@@ -102,11 +100,11 @@ bool SmoothField ( float* pHostFieldIn, float *pHostFieldOut, CUDAGrid cg, unsig
   gettimeofday ( &tb, NULL );
 
   // Construct a 2d grid/block from the parameters in CUDAGrid
-  const dim3 DimBlock .....TODO
-  const dim3 DimGrid .....TODO
+  const dim3 DimBlock; //.....TODO
+  const dim3 DimGrid; //.....TODO
 
   // Invoke the kernel
-  NNSmoothKernel <<<DimGrid,DimBlock>>> ( pDeviceFieldIn, pDeviceFieldOut, pitch, cg, smoothwidth ); 
+  NNSmoothKernel <<<DimGrid,DimBlock>>> ( pDeviceFieldIn, pDeviceFieldOut, pitch, cg, halfwidth ); 
 
   gettimeofday ( &tc, NULL );
 
@@ -168,7 +166,7 @@ int main ()
   cg.blockWidth = 16;
 
   // Pick the width of the smoothing kernel
-  smoothWidth = 17
+  halfWidth = 8; 
 
   // Create the input field
   float *field = (float *) malloc ( cg.gridWidth * cg.gridWidth * sizeof(float));
@@ -178,7 +176,7 @@ int main ()
   float *out = (float *) malloc ( cg.gridWidth * cg.gridWidth * sizeof(float));
 
   // Call the kernel
-  SmoothField ( field, out, cg, smoothWidth );
+  SmoothField ( field, out, cg, halfWidth );
 
   // Print the output field (for debugging purposes.
 /*  unsigned koffset = (cg.kernelWidth-1)/2;
