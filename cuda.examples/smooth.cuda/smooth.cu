@@ -40,25 +40,25 @@
 #include <cuda.h>
 
 // Data is of size dataWidth * dataWidth
-const unsigned int dataWidth = 4112;
+//const unsigned int dataWidth = 4112;
 
 // Parameter to express the smoothing kernel halfwidth
-const unsigned int halfWidth = 8;
+//const unsigned int halfWidth = 8;
 
 // Size of the CUDA threadBlock
-const unsigned int blockWidth = 16;
+//const unsigned int blockWidth = 16;
 
 
 /* Small values good for testing */
 
 // Data is of size dataWidth * dataWidth
-//const unsigned int dataWidth = 8;
+const unsigned int dataWidth = 8;
 
 // Parameter to express the smoothing kernel halfwidth
-//const unsigned int halfWidth = 1;
+const unsigned int halfWidth = 1;
 
 // Size of the CUDA threadBlock
-//const unsigned int blockWidth = 2;
+const unsigned int blockWidth = 2;
 
 
 /*------------------------------------------------------------------------------
@@ -109,7 +109,6 @@ bool SmoothField ( float* pHostFieldIn, float *pHostFieldOut )
   struct timeval ta, tb, tc, td;
 
   // Check the grid dimensions and extract parameters.  See top description about restrictions
-//  printf ( "%d, %d, %d\n", datWidth, halfWidth, blockSize
   assert(((dataWidth-2*halfWidth) % blockWidth) == 0 );
 
   gettimeofday ( &ta, NULL );
@@ -147,16 +146,16 @@ bool SmoothField ( float* pHostFieldIn, float *pHostFieldOut )
 
   if ( ta.tv_usec < td.tv_usec )
   {
-    printf ("Elapsed total time (s/m): %d:%d\n", td.tv_sec - ta.tv_sec, td.tv_usec - ta.tv_usec );
+    printf ("Elapsed total time (s/m): %ld:%d\n", td.tv_sec - ta.tv_sec, td.tv_usec - ta.tv_usec );
   } else {
-    printf ("Elapsed total time (s/m): %d:%d\n", td.tv_sec - ta.tv_sec - 1, 1000000 - td.tv_usec + ta.tv_usec );
+    printf ("Elapsed total time (s/m): %ld:%d\n", td.tv_sec - ta.tv_sec - 1, 1000000 - td.tv_usec + ta.tv_usec );
   }
 
   if ( tb.tv_usec < tc.tv_usec )
   {
-    printf ("Elapsed kernel time (s/m): %d:%d\n", tc.tv_sec - tb.tv_sec, tc.tv_usec - tb.tv_usec );
+    printf ("Elapsed kernel time (s/m): %ld:%d\n", tc.tv_sec - tb.tv_sec, tc.tv_usec - tb.tv_usec );
   } else {
-    printf ("Elapsed kernel time (s/m): %d:%d\n", tc.tv_sec - tb.tv_sec - 1, 1000000 - tc.tv_usec + tb.tv_usec );
+    printf ("Elapsed kernel time (s/m): %ld:%d\n", tc.tv_sec - tb.tv_sec - 1, 1000000 - tc.tv_usec + tb.tv_usec );
   }
 
   return true;
@@ -209,11 +208,11 @@ int main ()
            ( i < ( dataWidth - halfWidth )) &&
            ( j < ( dataWidth - halfWidth )) )
       {
-        printf ("%4.0f, ", out[j*dataWidth + i]);
+        printf ("%4.4f, ", out[j*dataWidth + i]);
       }
       else
       {
-        printf ("  na, ");
+        printf ("%4.4f, ", 0.0f );
       }
     }  
     printf ("\n");

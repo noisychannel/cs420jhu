@@ -1,6 +1,8 @@
 /*******************************************************************************
 *
-*  smooth.cu
+*  smooth.shm.cu
+*
+*  CUDA shared memory version.
 *
 *  This provides a CUDA implementation of a kernel smooother.
 *   http://en.wikipedia.org/wiki/Kernel_smoother
@@ -52,16 +54,13 @@
 /* Small values good for testing */
 
 // Data is of size dataWidth * dataWidth
-const unsigned int dataWidth = 14;
+const unsigned int dataWidth = 8;
 
 // Parameter to express the smoothing kernel halfwidth
 const unsigned int halfWidth = 1;
-const unsigned int kernelWidth = halfWidth*2+1;
 
 // Size of the CUDA threadBlock
-const unsigned int blockWidth = 4;
-
-
+const unsigned int blockWidth = 2;
 
 
 
@@ -72,39 +71,34 @@ const unsigned int blockWidth = 4;
 *-----------------------------------------------------------------------------*/
 __global__ void NNSmoothKernel ( float* pFieldIn, float* pFieldOut, size_t pitch )
 { 
-  extern __shared__ float shared[][blockWidth+kernelWidth-1];
+  extern __shared__ float shared[][blockWidth+2*halfWidth];
 
   // pitch is in bytes, figure out the number of elements for addressing
   unsigned pitchels = pitch/sizeof(float);
 
-  // compute the halfwidth-1 of the kernel
-  unsigned koffset = (kernelWidth-1)/2;
-
-
-  // Construct the 2d shared memory array it needs to be blockWidth+(kernelWidth-1)/2 square
-  // Each node loads one element
+  // Each node loads one element at it's threadIdx
   shared[threadIdx.x][threadIdx.y] = 
     pFieldIn [  (blockIdx.y * blockDim.y + threadIdx.y) * pitchels 
                    +  blockIdx.x * blockDim.x + threadIdx.x ];
 
-  // And determines if it needs to load it's x-neigbor
-  if ( threadIdx.x < kernelWidth -1 )
+  // Load the right portion beyond the threadBlock
+  if ( threadIdx.x < 2*halfWidth )
   {
     shared[threadIdx.x + blockWidth][threadIdx.y] = 
       pFieldIn [  (blockIdx.y * blockDim.y + threadIdx.y) * pitchels 
                      +  blockIdx.x * blockDim.x + threadIdx.x + blockWidth ];
   }
 
-  // And determines if it needs to load it's y-neigbor
-  if ( threadIdx.y < kernelWidth -1 )
+  // Load the bottom portion beyond the threadBlock
+  if ( threadIdx.y < 2*halfWidth )
   {
     shared[threadIdx.x][threadIdx.y + blockWidth] = 
       pFieldIn [  (blockIdx.y * blockDim.y + threadIdx.y + blockWidth) * pitchels 
                      +  blockIdx.x * blockDim.x + threadIdx.x];
   }
 
-  // And determines if it needs to load it's xy-neigbor
-  if ( ( threadIdx.y < kernelWidth -1 ) && ( threadIdx.x < kernelWidth -1 ))
+  // Load the bottom right portion beyond the threadBlock
+  if ( ( threadIdx.y < 2*halfWidth ) && ( threadIdx.x < 2*halfWidth ))
   {
     shared[threadIdx.x + blockWidth][threadIdx.y + blockWidth] = 
       pFieldIn [  (blockIdx.y * blockDim.y + threadIdx.y + blockWidth) * pitchels 
@@ -113,31 +107,28 @@ __global__ void NNSmoothKernel ( float* pFieldIn, float* pFieldOut, size_t pitch
 
   __syncthreads();
 
-  pFieldOut [ (threadIdx.y+koffset)*pitchels + threadIdx.x+koffset ] = shared [threadIdx.x][threadIdx.y];
-
 
   // Variable to accumulate the smoothed value
   float value = 0.0;
 
   // The grid indexes start from 
-  unsigned xindex = ( blockIdx.x * blockDim.x + threadIdx.x) + koffset; 
-  unsigned yindex = ( blockIdx.y * blockDim.y + threadIdx.y) + koffset; 
+  unsigned xindex = ( blockIdx.x * blockDim.x + threadIdx.x) + halfWidth; 
+  unsigned yindex = ( blockIdx.y * blockDim.y + threadIdx.y) + halfWidth; 
 
   // Get the value from the kernel
-  for ( unsigned j=0; j<kernelWidth; j++ )
+  for ( unsigned j=0; j<2*halfWidth+1; j++ )
   {
-    for ( unsigned i=0; i<kernelWidth; i++ )
+    for ( unsigned i=0; i<2*halfWidth+1; i++ )
     {
       value += shared [threadIdx.x+i] [threadIdx.y+j];
     }
   }
   
   // Divide by the number of elements in the kernel
-  value /= kernelWidth*kernelWidth;
+  value /= (2*halfWidth+1)*(2*halfWidth+1);
 
   // Write the value out 
   pFieldOut [ yindex*pitchels + xindex ] = value;
-
 
 } 
 
@@ -156,8 +147,7 @@ bool SmoothField ( float* pHostFieldIn, float *pHostFieldOut )
   struct timeval ta, tb, tc, td;
 
   // Check the grid dimensions and extract parameters.  See top description about restrictions
-//  assert ((( kernelWidth -1 )%2) == 0 );     // Width is odd
-//  assert((gridWidth-(kernelWidth-1) % blockWidth == 0 );
+  assert((dataWidth-(2*halfWidth)) % blockWidth == 0 );
 
   gettimeofday ( &ta, NULL );
 
@@ -174,9 +164,9 @@ bool SmoothField ( float* pHostFieldIn, float *pHostFieldOut )
 
   // Construct a 2d grid/block
   const dim3 DimBlock ( blockWidth, blockWidth );
-  const dim3 DimGrid ( (dataWidth-(kernelWidth-1))/blockWidth , 
-                       (dataWidth-(kernelWidth-1))/blockWidth );
-  const unsigned shmemSize = ( blockWidth + kernelWidth -1 ) * ( blockWidth + kernelWidth -1 ) * sizeof (float);
+  const dim3 DimGrid ( (dataWidth-(2*halfWidth))/blockWidth , 
+                       (dataWidth-(2*halfWidth))/blockWidth );
+  const unsigned shmemSize = ( blockWidth + 2*halfWidth) * ( blockWidth + 2*halfWidth ) * sizeof (float);
 
   // Invoke the kernel
   NNSmoothKernel <<<DimGrid,DimBlock, shmemSize>>> ( pDeviceFieldIn, pDeviceFieldOut, pitch ); 
@@ -193,16 +183,16 @@ bool SmoothField ( float* pHostFieldIn, float *pHostFieldOut )
 
   if ( ta.tv_usec < td.tv_usec )
   {
-    printf ("Elapsed total time (s/m): %d:%d\n", td.tv_sec - ta.tv_sec, td.tv_usec - ta.tv_usec );
+    printf ("Elapsed total time (s/m): %ld:%d\n", td.tv_sec - ta.tv_sec, td.tv_usec - ta.tv_usec );
   } else {
-    printf ("Elapsed total time (s/m): %d:%d\n", td.tv_sec - ta.tv_sec - 1, 1000000 - td.tv_usec + ta.tv_usec );
+    printf ("Elapsed total time (s/m): %ld:%d\n", td.tv_sec - ta.tv_sec - 1, 1000000 - td.tv_usec + ta.tv_usec );
   }
 
   if ( tb.tv_usec < tc.tv_usec )
   {
-    printf ("Elapsed kernel time (s/m): %d:%d\n", tc.tv_sec - tb.tv_sec, tc.tv_usec - tb.tv_usec );
+    printf ("Elapsed kernel time (s/m): %ld:%d\n", tc.tv_sec - tb.tv_sec, tc.tv_usec - tb.tv_usec );
   } else {
-    printf ("Elapsed kernel time (s/m): %d:%d\n", tc.tv_sec - tb.tv_sec - 1, 1000000 - tc.tv_usec + tb.tv_usec );
+    printf ("Elapsed kernel time (s/m): %ld:%d\n", tc.tv_sec - tb.tv_sec - 1, 1000000 - tc.tv_usec + tb.tv_usec );
   }
 
   return true;
@@ -245,7 +235,7 @@ int main ()
   SmoothField ( field, out );
 
   // Print the output field (for debugging purposes.
-  unsigned koffset = (kernelWidth-1)/2;
+  unsigned koffset = halfWidth;
   for ( unsigned j=0; j< dataWidth; j++ )
   {
     for ( unsigned i=0; i< dataWidth; i++ )
