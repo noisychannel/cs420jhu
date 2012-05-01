@@ -4,24 +4,26 @@
 *
 *  This provides a CUDA implementation of a kernel smooother.
 *   http://en.wikipedia.org/wiki/Kernel_smoother
-*  The particular kernel in this file is a nearest neighbor smoother
+*  The particular smoother in this file is a nearest neighbor smoother
 *  in order to keep the code as simple to understand as possible.
 *
 *  This is implemeneted for 2-d square grids.
 *
-*  Parameters of note are all in struct CUDAGrid.
+*  Parameters of note:
 *    gridWidth -- size of the grid is gridWidth^2
-*    kernelWidth -- region around point x,y to smooth
-*        must be odd, i.e. 2k+1 smooths box with corners (x-k,y-k) to (x+k,y+k)
 *    blockWidth -- number of processors per block.
-*        must be ((cg.gridWidth-(cg.kernelWidth-1))^2 % (blockWidth^2)) == 0 
+*        must be ((gridWidth-(kernelWidth-1)) % blockWidth == 0 
 *        i.e. the smoothed regions must be of blocksize increments.
+*    smoothWidth -- region around point x,y to smooth
+*        must be odd, i.e. 2k+1 smooths box with corners (x-k,y-k) to (x+k,y+k)
 *
 *  The smoothed region is only defined for the interior that has the kernel
 *   defined inside the boundary, e.g. for gridWidth=10, kernelWidth=2 the
 *   region from 2,2 to 7,7 will be smoothed. 
 *
 ********************************************************************************/
+
+// TODO some testing.
 
 /*******************************************************************************
 *
@@ -43,22 +45,24 @@
 #include <cuda.h>
 
 //
-// CUDAGrid: structure to define geometry parameter.
+// SmoothGrid: structure to define geometry parameters.
 //   set one of these up in main()
 //
 typedef struct
 {
-  unsigned gridWidth;
-  unsigned kernelWidth;
-  unsigned blockWidth;
-} CUDAGrid;
+  unsigned int gridWidth;
+  unsigned int blockWidth;
+} SmoothGrid;
+
+unsigned int smoothWidth;
+
 
 /*------------------------------------------------------------------------------
 * Name: NNSmoothKernel
 * Action:  The CUDA kernel that implements kernel smoothing.
 *             Yuck, that's two senses of kernel.
 *-----------------------------------------------------------------------------*/
-__global__ void NNSmoothKernel ( float* pFieldIn, float* pFieldOut, size_t pitch, CUDAGrid cg )
+__global__ void NNSmoothKernel ( float* pFieldIn, float* pFieldOut, size_t pitch, CUDAGrid cg, unsigned int smoothwidth )
 { 
   // pitch is in bytes, figure out the number of elements for addressing
   unsigned pitchels = pitch/sizeof(float);
@@ -70,7 +74,7 @@ __global__ void NNSmoothKernel ( float* pFieldIn, float* pFieldOut, size_t pitch
 * Name:  SmoothField
 * Action:  Host entry point to kernel smoother
 *-----------------------------------------------------------------------------*/
-bool SmoothField ( float* pHostFieldIn, float *pHostFieldOut, CUDAGrid cg ) 
+bool SmoothField ( float* pHostFieldIn, float *pHostFieldOut, CUDAGrid cg, unsigned int smoothWidth ) 
 { 
   float * pDeviceFieldIn = 0;
   float * pDeviceFieldOut = 0;
@@ -97,12 +101,12 @@ bool SmoothField ( float* pHostFieldIn, float *pHostFieldOut, CUDAGrid cg )
 
   gettimeofday ( &tb, NULL );
 
-  // Construct a 2d grid/block
+  // Construct a 2d grid/block from the parameters in CUDAGrid
   const dim3 DimBlock .....TODO
   const dim3 DimGrid .....TODO
 
   // Invoke the kernel
-  NNSmoothKernel <<<DimGrid,DimBlock>>> ( pDeviceFieldIn, pDeviceFieldOut, pitch, cg ); 
+  NNSmoothKernel <<<DimGrid,DimBlock>>> ( pDeviceFieldIn, pDeviceFieldOut, pitch, cg, smoothwidth ); 
 
   gettimeofday ( &tc, NULL );
 
@@ -161,8 +165,10 @@ int main ()
   // Define the grid
   CUDAGrid cg;
   cg.gridWidth = 4112;
-  cg.kernelWidth = 17;
   cg.blockWidth = 16;
+
+  // Pick the width of the smoothing kernel
+  smoothWidth = 17
 
   // Create the input field
   float *field = (float *) malloc ( cg.gridWidth * cg.gridWidth * sizeof(float));
@@ -172,7 +178,7 @@ int main ()
   float *out = (float *) malloc ( cg.gridWidth * cg.gridWidth * sizeof(float));
 
   // Call the kernel
-  SmoothField ( field, out, cg );
+  SmoothField ( field, out, cg, smoothWidth );
 
   // Print the output field (for debugging purposes.
 /*  unsigned koffset = (cg.kernelWidth-1)/2;

@@ -110,6 +110,7 @@ bool SmoothField ( unsigned dim, unsigned width, float* pFieldIn, float* pFieldO
       pFieldOut[j*dim+i] = NNSmoother ( 2*width+1, buf );
     }
   }
+  free(buf);
   return true;
 }
 
@@ -142,12 +143,12 @@ int main ()
   //  the valid region is from 
   //   corner (kernelwidth, kernelwidth) to
   //   corner (dimension-kernelwidth-1, dimension-kernelwidth-1)
-  unsigned dimension = 2064;
-  unsigned kernelwidth = 8; 
+  //unsigned dimension = 4112;
+  //unsigned kernelwidth = 8; 
 
 //  These are good small values to use.
-//  unsigned dimension = 16;
-//  unsigned kernelwidth = 3; 
+  unsigned dimension = 16;
+  unsigned kernelwidth = 3; 
 
   // Create the input field
   float *field = (float *) malloc ( dimension * dimension * sizeof(float));
@@ -169,21 +170,22 @@ int main ()
 
   if ( ta.tv_usec < tb.tv_usec )
   {
-    printf ("Elapsed total time (s/m): %d:%d\n", tb.tv_sec - ta.tv_sec, tb.tv_usec - ta.tv_usec );
+    printf ("Elapsed total time (s/m): %ld:%ld\n", tb.tv_sec - ta.tv_sec, tb.tv_usec - ta.tv_usec );
   } else {
-    printf ("Elapsed total time (s/m): %d:%d\n", tb.tv_sec - ta.tv_sec - 1, 1000000 - tb.tv_usec + ta.tv_usec );
+    printf ("Elapsed total time (s/m): %ld:%ld\n", tb.tv_sec - ta.tv_sec - 1, 1000000 - tb.tv_usec + ta.tv_usec );
   }
 
   // See what happened.
-//  for ( unsigned j=0; j< dimension; j++ )
-//  {
-//    for ( unsigned i=0; i< dimension; i++ )
-//    {
-//      printf ("%4.4f, ", out[j*dimension + i]);
-//    }
-//    printf ("\n");
-//  }
-
+  for ( unsigned j=0; j< dimension; j++ )
+  {
+    for ( unsigned i=0; i< dimension; i++ )
+    {
+      printf ("%4.4f, ", out[j*dimension + i]);
+    }
+    printf ("\n");
+  }
+  free(field);
+  free(out);
 }  
 
 
