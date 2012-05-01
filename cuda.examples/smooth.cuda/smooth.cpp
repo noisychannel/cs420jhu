@@ -143,12 +143,12 @@ int main ()
   //  the valid region is from 
   //   corner (kernelwidth, kernelwidth) to
   //   corner (dimension-kernelwidth-1, dimension-kernelwidth-1)
-  //unsigned dimension = 4112;
-  //unsigned kernelwidth = 8; 
+//  unsigned dimension = 4112;
+//  unsigned kernelwidth = 8; 
 
 //  These are good small values to use.
-  unsigned dimension = 16;
-  unsigned kernelwidth = 3; 
+  unsigned dimension = 8;
+  unsigned kernelwidth = 1; 
 
   // Create the input field
   float *field = (float *) malloc ( dimension * dimension * sizeof(float));
@@ -170,9 +170,9 @@ int main ()
 
   if ( ta.tv_usec < tb.tv_usec )
   {
-    printf ("Elapsed total time (s/m): %ld:%ld\n", tb.tv_sec - ta.tv_sec, tb.tv_usec - ta.tv_usec );
+    printf ("Elapsed total time (s/m): %ld:%d\n", tb.tv_sec - ta.tv_sec, tb.tv_usec - ta.tv_usec );
   } else {
-    printf ("Elapsed total time (s/m): %ld:%ld\n", tb.tv_sec - ta.tv_sec - 1, 1000000 - tb.tv_usec + ta.tv_usec );
+    printf ("Elapsed total time (s/m): %ld:%d\n", tb.tv_sec - ta.tv_sec - 1, 1000000 - tb.tv_usec + ta.tv_usec );
   }
 
   // See what happened.
@@ -184,15 +184,8 @@ int main ()
     }
     printf ("\n");
   }
+
+  // Free the allocated fields
   free(field);
   free(out);
 }  
-
-
-/*******************************************************************************
-*
-*  Revsion History
-*
-*  $Log: $
-*
-*******************************************************************************/

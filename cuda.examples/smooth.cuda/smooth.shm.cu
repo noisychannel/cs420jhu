@@ -1,6 +1,8 @@
 /*******************************************************************************
 *
-*  smooth.cu
+*  smooth.shm.cu
+*
+*  CUDA shared memory version.
 *
 *  This provides a CUDA implementation of a kernel smooother.
 *   http://en.wikipedia.org/wiki/Kernel_smoother
@@ -15,7 +17,7 @@
 *        k smooths box with corners [x-k,y-k] to [x+k,y+k]
 *
 *  The smoothed region is only defined for the interior that has the kernel
-*   defined inside the boundary, e.g. for gridWidth=10, halfWidth=2 the
+*   defined inside the boundary, e.g. for dataWidth=10, halfWidth=2 the
 *   region from 2,2 to 7,7 will be smoothed. 
 *
 ********************************************************************************/
@@ -27,6 +29,7 @@
 *  This file shows how to use many features of CUDA:
 *     2d grids
 *     pitch allocation
+*     shared memory
 *
 ********************************************************************************/
 
@@ -48,7 +51,6 @@
 // Size of the CUDA threadBlock
 //const unsigned int blockWidth = 16;
 
-
 /* Small values good for testing */
 
 // Data is of size dataWidth * dataWidth
@@ -67,12 +69,66 @@ const unsigned int blockWidth = 2;
 * Action:  The CUDA kernel that implements kernel smoothing.
 *             Yuck, that's two senses of kernel.
 *-----------------------------------------------------------------------------*/
-__global__ void NNSmoothKernel ( float* pFieldIn, float* pFieldOut, size_t pitch, unsigned int halfwidth )
+__global__ void NNSmoothKernel ( float* pFieldIn, float* pFieldOut, size_t pitch )
 { 
-  // pitch is in bytes, figure out the number of elements for addressing memory locations in pFieldIn and pFieldOut
+  extern __shared__ float shared[][blockWidth+2*halfWidth];
+
+  // pitch is in bytes, figure out the number of elements for addressing
   unsigned pitchels = pitch/sizeof(float);
 
-  ......
+  // Each node loads one element at it's threadIdx
+  shared[threadIdx.x][threadIdx.y] = 
+    pFieldIn [  (blockIdx.y * blockDim.y + threadIdx.y) * pitchels 
+                   +  blockIdx.x * blockDim.x + threadIdx.x ];
+
+  // Load the right portion beyond the threadBlock
+  if ( threadIdx.x < 2*halfWidth )
+  {
+    shared[threadIdx.x + blockWidth][threadIdx.y] = 
+      pFieldIn [  (blockIdx.y * blockDim.y + threadIdx.y) * pitchels 
+                     +  blockIdx.x * blockDim.x + threadIdx.x + blockWidth ];
+  }
+
+  // Load the bottom portion beyond the threadBlock
+  if ( threadIdx.y < 2*halfWidth )
+  {
+    shared[threadIdx.x][threadIdx.y + blockWidth] = 
+      pFieldIn [  (blockIdx.y * blockDim.y + threadIdx.y + blockWidth) * pitchels 
+                     +  blockIdx.x * blockDim.x + threadIdx.x];
+  }
+
+  // Load the bottom right portion beyond the threadBlock
+  if ( ( threadIdx.y < 2*halfWidth ) && ( threadIdx.x < 2*halfWidth ))
+  {
+    shared[threadIdx.x + blockWidth][threadIdx.y + blockWidth] = 
+      pFieldIn [  (blockIdx.y * blockDim.y + threadIdx.y + blockWidth) * pitchels 
+                     +  blockIdx.x * blockDim.x + threadIdx.x + blockWidth];
+  }
+
+  __syncthreads();
+
+
+  // Variable to accumulate the smoothed value
+  float value = 0.0;
+
+  // The grid indexes start from 
+  unsigned xindex = ( blockIdx.x * blockDim.x + threadIdx.x) + halfWidth; 
+  unsigned yindex = ( blockIdx.y * blockDim.y + threadIdx.y) + halfWidth; 
+
+  // Get the value from the kernel
+  for ( unsigned j=0; j<2*halfWidth+1; j++ )
+  {
+    for ( unsigned i=0; i<2*halfWidth+1; i++ )
+    {
+      value += shared [threadIdx.x+i] [threadIdx.y+j];
+    }
+  }
+  
+  // Divide by the number of elements in the kernel
+  value /= (2*halfWidth+1)*(2*halfWidth+1);
+
+  // Write the value out 
+  pFieldOut [ yindex*pitchels + xindex ] = value;
 
 } 
 
@@ -91,7 +147,7 @@ bool SmoothField ( float* pHostFieldIn, float *pHostFieldOut )
   struct timeval ta, tb, tc, td;
 
   // Check the grid dimensions and extract parameters.  See top description about restrictions
-  assert(((dataWidth-2*halfWidth) % blockWidth) == 0 );
+  assert((dataWidth-(2*halfWidth)) % blockWidth == 0 );
 
   gettimeofday ( &ta, NULL );
 
@@ -106,18 +162,20 @@ bool SmoothField ( float* pHostFieldIn, float *pHostFieldOut )
 
   gettimeofday ( &tb, NULL );
 
-  // Construct a 2d grid/block from the parameters in CUDAGrid
-  const dim3 DimBlock; //.....TODO
-  const dim3 DimGrid; //.....TODO
+  // Construct a 2d grid/block
+  const dim3 DimBlock ( blockWidth, blockWidth );
+  const dim3 DimGrid ( (dataWidth-(2*halfWidth))/blockWidth , 
+                       (dataWidth-(2*halfWidth))/blockWidth );
+  const unsigned shmemSize = ( blockWidth + 2*halfWidth) * ( blockWidth + 2*halfWidth ) * sizeof (float);
 
   // Invoke the kernel
-  NNSmoothKernel <<<DimGrid,DimBlock>>> ( pDeviceFieldIn, pDeviceFieldOut, pitch, halfWidth ); 
+  NNSmoothKernel <<<DimGrid,DimBlock, shmemSize>>> ( pDeviceFieldIn, pDeviceFieldOut, pitch ); 
 
   gettimeofday ( &tc, NULL );
 
   // Retrieve the results
   cudaMemcpy2D(pHostFieldOut, dataWidth*sizeof(float), 
-               pDeviceFieldOut, pitchout, dataWidth*sizeof(float), dataWidth,
+               pDeviceFieldOut, pitch, dataWidth*sizeof(float), dataWidth,
                cudaMemcpyDeviceToHost); 
 
   gettimeofday ( &td, NULL );
@@ -166,7 +224,6 @@ void initField ( unsigned dim, float* pField )
 *-----------------------------------------------------------------------------*/
 int main ()
 {
-
   // Create the input field
   float *field = (float *) malloc ( dataWidth * dataWidth * sizeof(float));
   initField ( dataWidth, field );
@@ -178,14 +235,15 @@ int main ()
   SmoothField ( field, out );
 
   // Print the output field (for debugging purposes.
+  unsigned koffset = halfWidth;
   for ( unsigned j=0; j< dataWidth; j++ )
   {
     for ( unsigned i=0; i< dataWidth; i++ )
     {
-      if ( ( i >= halfWidth ) && 
-           ( j >= halfWidth ) &&
-           ( i < ( dataWidth - halfWidth )) &&
-           ( j < ( dataWidth - halfWidth )) )
+      if ( ( i >= koffset ) && 
+           ( j >= koffset ) &&
+           ( i < ( dataWidth - koffset )) &&
+           ( j < ( dataWidth - koffset )) )
       {
         printf ("%4.4f, ", out[j*dataWidth + i]);
       }
@@ -196,5 +254,5 @@ int main ()
     }  
     printf ("\n");
   }
-}
 
+}
