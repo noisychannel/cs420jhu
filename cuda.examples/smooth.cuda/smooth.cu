@@ -1,24 +1,21 @@
 /*******************************************************************************
 *
-*  kernelSmoother
+*  smooth.cu
 *
 *  This provides a CUDA implementation of a kernel smooother.
 *   http://en.wikipedia.org/wiki/Kernel_smoother
-*  The particular kernel in this file is a nearest neighbor smoother
+*  The particular smoother in this file is a nearest neighbor smoother
 *  in order to keep the code as simple to understand as possible.
 *
 *  This is implemeneted for 2-d square grids.
 *
-*  Parameters of note are all in struct CUDAGrid.
-*    gridWidth -- size of the grid is gridWidth^2
-*    kernelWidth -- region around point x,y to smooth
-*        must be odd, i.e. 2k+1 smooths box with corners (x-k,y-k) to (x+k,y+k)
-*    blockWidth -- number of processors per block.
-*        must be ((cg.gridWidth-(cg.kernelWidth-1))^2 % (blockWidth^2)) == 0 
-*        i.e. the smoothed regions must be of blocksize increments.
+*  Parameters of note:
+*    dataWidth -- size of the data is dataWidth^2
+*    halfWidth -- region around point x,y to smooth
+*        k smooths box with corners [x-k,y-k] to [x+k,y+k]
 *
 *  The smoothed region is only defined for the interior that has the kernel
-*   defined inside the boundary, e.g. for gridWidth=10, kernelWidth=2 the
+*   defined inside the boundary, e.g. for gridWidth=10, halfWidth=2 the
 *   region from 2,2 to 7,7 will be smoothed. 
 *
 ********************************************************************************/
@@ -42,51 +39,59 @@
 
 #include <cuda.h>
 
-//
-// CUDAGrid: structure to define geometry parameter.
-//   set one of these up in main()
-//
-typedef struct
-{
-  unsigned gridWidth;
-  unsigned kernelWidth;
-  unsigned blockWidth;
-} CUDAGrid;
+// Data is of size dataWidth * dataWidth
+const unsigned int dataWidth = 4112;
+
+// Parameter to express the smoothing kernel halfwidth
+const unsigned int halfWidth = 8;
+
+// Size of the CUDA threadBlock
+const unsigned int blockWidth = 16;
+
+
+/* Small values good for testing */
+
+// Data is of size dataWidth * dataWidth
+//const unsigned int dataWidth = 8;
+
+// Parameter to express the smoothing kernel halfwidth
+//const unsigned int halfWidth = 1;
+
+// Size of the CUDA threadBlock
+//const unsigned int blockWidth = 2;
+
 
 /*------------------------------------------------------------------------------
 * Name: NNSmoothKernel
 * Action:  The CUDA kernel that implements kernel smoothing.
 *             Yuck, that's two senses of kernel.
 *-----------------------------------------------------------------------------*/
-__global__ void NNSmoothKernel ( float* pFieldIn, float* pFieldOut, size_t pitch, CUDAGrid cg )
+__global__ void NNSmoothKernel ( float* pFieldIn, float* pFieldOut, size_t pitch, unsigned int halfwidth )
 { 
-  // compute the halfwidth-1 of the kernel
-  unsigned koffset = (cg.kernelWidth-1)/2;
-
-  // The grid indexes start from 
-  unsigned xindex = ( blockIdx.x * blockDim.x + threadIdx.x) + koffset; 
-  unsigned yindex = ( blockIdx.y * blockDim.y + threadIdx.y) + koffset; 
-   
   // pitch is in bytes, figure out the number of elements for addressing
   unsigned pitchels = pitch/sizeof(float);
-  
+
+  // The grid indexes start from 
+  unsigned xindex = ( blockIdx.x * blockDim.x + threadIdx.x); 
+  unsigned yindex = ( blockIdx.y * blockDim.y + threadIdx.y); 
+   
   // Variable to accumulate the smoothed value
   float value = 0.0;
 
   // Get the value from the kernel
-  for ( unsigned j=0; j<cg.kernelWidth; j++ )
+  for ( unsigned j=0; j<=2*halfwidth; j++ )
   {
-    for ( unsigned i=0; i<cg.kernelWidth; i++ )
+    for ( unsigned i=0; i<=2*halfwidth; i++ )
     {
-      value +=  pFieldIn [ pitchels*(yindex - koffset + j) + xindex - koffset + i ];
+      value +=  pFieldIn [ pitchels*(yindex + j) + xindex + i ];
     }
   }
   
   // Divide by the number of elements in the kernel
-  value /= cg.kernelWidth*cg.kernelWidth;
+  value /= float((2*halfWidth+1)*(2*halfWidth+1));
 
   // Write the value out 
-  pFieldOut [ yindex*pitchels + xindex ] = value;
+  pFieldOut [ (yindex+halfwidth)*pitchels + xindex+halfwidth ] = value;
 } 
 
 
@@ -94,7 +99,7 @@ __global__ void NNSmoothKernel ( float* pFieldIn, float* pFieldOut, size_t pitch
 * Name:  SmoothField
 * Action:  Host entry point to kernel smoother
 *-----------------------------------------------------------------------------*/
-bool SmoothField ( float* pHostFieldIn, float *pHostFieldOut, CUDAGrid cg ) 
+bool SmoothField ( float* pHostFieldIn, float *pHostFieldOut ) 
 { 
   float * pDeviceFieldIn = 0;
   float * pDeviceFieldOut = 0;
@@ -104,36 +109,37 @@ bool SmoothField ( float* pHostFieldIn, float *pHostFieldOut, CUDAGrid cg )
   struct timeval ta, tb, tc, td;
 
   // Check the grid dimensions and extract parameters.  See top description about restrictions
-  assert ((( cg.kernelWidth -1 )%2) == 0 );     // Width is odd
-  unsigned blockSize = cg.blockWidth * cg.blockWidth;  
-  assert( ((cg.gridWidth-(cg.kernelWidth-1))*(cg.gridWidth-(cg.kernelWidth-1)) % blockSize) == 0 );
+//  printf ( "%d, %d, %d\n", datWidth, halfWidth, blockSize
+  assert(((dataWidth-2*halfWidth) % blockWidth) == 0 );
 
   gettimeofday ( &ta, NULL );
 
   // Place the data set on device memory
-  cudaMallocPitch((void**)&pDeviceFieldIn, &pitch, cg.gridWidth*sizeof(float), cg.gridWidth ); 
+  cudaMallocPitch((void**)&pDeviceFieldIn, &pitch, dataWidth*sizeof(float), dataWidth ); 
   cudaMemcpy2D ( pDeviceFieldIn, pitch,
-                 pHostFieldIn, cg.gridWidth*sizeof(float), cg.gridWidth*sizeof(float), cg.gridWidth,
+                 pHostFieldIn, dataWidth*sizeof(float), dataWidth*sizeof(float), dataWidth,
                  cudaMemcpyHostToDevice); 
 
   // Allocate the output
-  cudaMallocPitch((void**)&pDeviceFieldOut, &pitchout, cg.gridWidth*sizeof(float), cg.gridWidth ); 
+  cudaMallocPitch((void**)&pDeviceFieldOut, &pitchout, dataWidth*sizeof(float), dataWidth ); 
 
   gettimeofday ( &tb, NULL );
 
   // Construct a 2d grid/block
-  const dim3 DimBlock ( cg.blockWidth, cg.blockWidth );
-  const dim3 DimGrid ( (cg.gridWidth-(cg.kernelWidth-1))/cg.blockWidth , 
-                       (cg.gridWidth-(cg.kernelWidth-1))/cg.blockWidth );
+  const dim3 DimBlock ( blockWidth, blockWidth );
+  const dim3 DimGrid ( (dataWidth-(2*halfWidth))/blockWidth, 
+                       (dataWidth-(2*halfWidth))/blockWidth );
+
+
 
   // Invoke the kernel
-  NNSmoothKernel <<<DimGrid,DimBlock>>> ( pDeviceFieldIn, pDeviceFieldOut, pitch, cg ); 
+  NNSmoothKernel <<<DimGrid,DimBlock>>> ( pDeviceFieldIn, pDeviceFieldOut, pitch, halfWidth ); 
 
   gettimeofday ( &tc, NULL );
 
   // Retrieve the results
-  cudaMemcpy2D(pHostFieldOut, cg.gridWidth*sizeof(float), 
-               pDeviceFieldOut, pitch, cg.gridWidth*sizeof(float), cg.gridWidth,
+  cudaMemcpy2D(pHostFieldOut, dataWidth*sizeof(float), 
+               pDeviceFieldOut, pitchout, dataWidth*sizeof(float), dataWidth,
                cudaMemcpyDeviceToHost); 
 
   gettimeofday ( &td, NULL );
@@ -183,34 +189,27 @@ void initField ( unsigned dim, float* pField )
 int main ()
 {
 
-  // Define the grid
-  CUDAGrid cg;
-  cg.gridWidth = 4112;
-  cg.kernelWidth = 17;
-  cg.blockWidth = 16;
-
   // Create the input field
-  float *field = (float *) malloc ( cg.gridWidth * cg.gridWidth * sizeof(float));
-  initField ( cg.gridWidth, field );
+  float *field = (float *) malloc ( dataWidth * dataWidth * sizeof(float));
+  initField ( dataWidth, field );
 
   // Create the output field
-  float *out = (float *) malloc ( cg.gridWidth * cg.gridWidth * sizeof(float));
+  float *out = (float *) malloc ( dataWidth * dataWidth * sizeof(float));
 
   // Call the kernel
-  SmoothField ( field, out, cg );
+  SmoothField ( field, out );
 
   // Print the output field (for debugging purposes.
-/*  unsigned koffset = (cg.kernelWidth-1)/2;
-  for ( unsigned j=0; j< cg.gridWidth; j++ )
+  for ( unsigned j=0; j< dataWidth; j++ )
   {
-    for ( unsigned i=0; i< cg.gridWidth; i++ )
+    for ( unsigned i=0; i< dataWidth; i++ )
     {
-      if ( ( i >= koffset ) && 
-           ( j >= koffset ) &&
-           ( i < ( cg.gridWidth - koffset )) &&
-           ( j < ( cg.gridWidth - koffset )) )
+      if ( ( i >= halfWidth ) && 
+           ( j >= halfWidth ) &&
+           ( i < ( dataWidth - halfWidth )) &&
+           ( j < ( dataWidth - halfWidth )) )
       {
-        printf ("%4.0f, ", out[j*cg.gridWidth + i]);
+        printf ("%4.0f, ", out[j*dataWidth + i]);
       }
       else
       {
@@ -219,6 +218,5 @@ int main ()
     }  
     printf ("\n");
   }
-*/
 }
 
