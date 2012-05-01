@@ -218,5 +218,9 @@ int main ()
     }  
     printf ("\n");
   }
+
+  // Free malloc'ed fields
+  free(field);
+  free(out);
 }
 
