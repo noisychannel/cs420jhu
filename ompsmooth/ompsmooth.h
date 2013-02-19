@@ -14,6 +14,8 @@ void smoothSerialYX ( int dim, int halfwidth, float * m1, float * m2 );
 void smoothParallelXYFor ( int dim, int halfwidth, float * m1, float * m2 );
 void smoothParallelYXFor ( int dim, int halfwidth, float * m1, float * m2 );
 void smoothParallelCoalescedFor ( int dim, int halfwidth, float * m1, float * m2 );
+void dualSmoothParallelYXFor ( int dim, int halfwidth, float * m1, float * m2 , float * m3 );
+void mergedDualSmoothParallelYXFor ( int dim, int halfwidth, float * m1, float * m2 , float * m3 );
 
 
 #endif

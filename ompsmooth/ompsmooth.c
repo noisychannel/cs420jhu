@@ -43,8 +43,8 @@ inline float evaluate ( int dim, int halfwidth, int x, int y, float* m1)
   return value/cellcount;
 
   /* Check the output.  Turn off for timing rns. */
-  //float val = value / cellcount;
-  //printf("XY %d, %d cellcount %d value %f\n", x,y,cellcount, value);
+//  float val = value / cellcount;
+//  printf("XY %d, %d cellcount %d value %f\n", x,y,cellcount, value);
 }
 
 
@@ -87,7 +87,16 @@ void smoothSerialXY ( int dim, int halfwidth, float * m1, float * m2 )
 *-----------------------------------------------------------------------------*/
 void smoothParallelYXFor ( int dim, int halfwidth, float * m1, float * m2 )
 {
-  return;
+	int x, y;
+
+	#pragma omp parallel for private(x)
+	for (y = 0; y < dim; y++)
+	{
+		for (x = 0; x < dim; x++)
+		{
+			m2[y * dim + x] = evaluate(dim, halfwidth, x, y, m1);
+		}
+	}
 }
 
 /*------------------------------------------------------------------------------
@@ -96,7 +105,16 @@ void smoothParallelYXFor ( int dim, int halfwidth, float * m1, float * m2 )
 *-----------------------------------------------------------------------------*/
 void smoothParallelXYFor ( int dim, int halfwidth, float * m1, float * m2 )
 {
-  return;
+	int x, y;
+
+	#pragma omp parallel for private(y)
+	for (x = 0; x < dim; x++)
+	{
+		for (y = 0; y < dim; y++)
+		{
+			m2[y * dim + x] = evaluate(dim, halfwidth, x, y, m1);
+		}
+	}
 }
 
 
@@ -106,5 +124,42 @@ void smoothParallelXYFor ( int dim, int halfwidth, float * m1, float * m2 )
 *-----------------------------------------------------------------------------*/
 void smoothParallelCoalescedFor ( int dim, int halfwidth, float * m1, float * m2 )
 {
-  return;
+	int xy, x, y;
+
+	#pragma omp parallel for private(x,y)
+	for (xy = 0; xy < dim*dim; xy++) {
+		x = xy/dim;
+		y = xy%dim;
+
+		m2[y * dim + x] = evaluate(dim, halfwidth, x, y, m1);
+	}
+}
+
+/*------------------------------------------------------------------------------
+* Name:  dualSmoothParallelYXFor
+* Action: for loop in C (row major) order
+*-----------------------------------------------------------------------------*/
+void dualSmoothParallelYXFor ( int dim, int halfwidth, float * m1, float * m2 , float * m3 )
+{
+	smoothParallelYXFor(dim, halfwidth, m1, m2);
+	smoothParallelYXFor(dim, halfwidth, m1, m3);
+}
+
+/*------------------------------------------------------------------------------
+* Name:  mergedDualSmoothParallelYXFor
+* Action: for loop in C (row major) order
+*-----------------------------------------------------------------------------*/
+void mergedDualSmoothParallelYXFor ( int dim, int halfwidth, float * m1, float * m2 , float * m3 )
+{
+	int x, y;
+
+	#pragma omp parallel for private(x)
+	for (y = 0; y < dim; y++)
+	{
+		for (x = 0; x < dim; x++)
+		{
+			m2[y * dim + x] = evaluate(dim, halfwidth, x, y, m1);
+			m3[y * dim + x] = evaluate(dim, halfwidth, x, y, m1);
+		}
+	}
 }

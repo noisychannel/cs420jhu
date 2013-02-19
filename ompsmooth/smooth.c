@@ -18,7 +18,7 @@
 #define MAT_DIM 6000
 #define MAT_SIZE MAT_DIM*MAT_DIM
 
-#define KERNEL_HALFWIDTH 2
+#define KERNEL_HALFWIDTH 1
 
 
 int main()
@@ -29,9 +29,10 @@ int main()
   /* Create two input matrixes */
   float * m1in;
   float * m2out;
+  float * m3out;
   m1in = malloc ( sizeof(float)*MAT_SIZE );
   m2out = malloc ( sizeof(float)*MAT_SIZE );
-
+  m3out = malloc ( sizeof(float)*MAT_SIZE );
 
   /*  random data for the input */
   // int fd = open ("/dev/urandom", O_RDONLY );
@@ -46,7 +47,7 @@ int main()
 
   /* zero the output */
   memset ( m2out, 0, MAT_SIZE*sizeof(float) );
-
+  memset ( m3out, 0, MAT_SIZE*sizeof(float) );
 
   /*********  Serial Test **********/
 
@@ -68,7 +69,7 @@ int main()
   if ( ta.tv_usec <= tb.tv_usec ) {
     u = tb.tv_usec - ta.tv_usec;
   } else {
-    u = 1000000 - tb.tv_usec + ta.tv_usec;
+    u = 1000000 - ta.tv_usec + tb.tv_usec;;
     s = s-1;
   }
 
@@ -88,7 +89,7 @@ int main()
   if ( ta.tv_usec <= tb.tv_usec ) {
     u = tb.tv_usec - ta.tv_usec;
   } else {
-    u = 1000000 - tb.tv_usec + ta.tv_usec;
+    u = 1000000 - ta.tv_usec + tb.tv_usec;;
     s = s-1;
   }
 
@@ -115,7 +116,7 @@ int main()
     if ( ta.tv_usec < tb.tv_usec ) {
       u = tb.tv_usec - ta.tv_usec;
     } else {
-      u = 1000000 - tb.tv_usec + ta.tv_usec;
+      u = 1000000 - ta.tv_usec + tb.tv_usec;;
       s = s-1;
     }
 
@@ -134,7 +135,7 @@ int main()
     if ( ta.tv_usec < tb.tv_usec ) {
       u = tb.tv_usec - ta.tv_usec;
     } else {
-      u = 1000000 - tb.tv_usec + ta.tv_usec;
+      u = 1000000 - ta.tv_usec + tb.tv_usec;;
       s = s-1;
     }
 
@@ -154,11 +155,51 @@ int main()
     if ( ta.tv_usec < tb.tv_usec ) {
       u = tb.tv_usec - ta.tv_usec;
     } else {
-      u = 1000000 - tb.tv_usec + ta.tv_usec;
+      u = 1000000 - ta.tv_usec + tb.tv_usec;;
       s = s-1;
     }
 
     printf ("Parallel coalesced smoother took %d seconds and %d microseconds\n",s,u );
+
+
+    /* get initial time */
+	gettimeofday ( &ta, NULL );
+
+	dualSmoothParallelYXFor ( MAT_DIM, KERNEL_HALFWIDTH, m1in, m2out, m3out );
+
+	/* get initial time */
+	gettimeofday ( &tb, NULL );
+
+	/* Work out the time */
+	s = tb.tv_sec - ta.tv_sec;
+	if ( ta.tv_usec < tb.tv_usec ) {
+	  u = tb.tv_usec - ta.tv_usec;
+	} else {
+	  u = 1000000 - ta.tv_usec + tb.tv_usec;;
+	  s = s-1;
+	}
+
+	printf ("Dual Parallel smoother took %d seconds and %d microseconds\n",s,u );
+
+
+    /* get initial time */
+	gettimeofday ( &ta, NULL );
+
+	mergedDualSmoothParallelYXFor ( MAT_DIM, KERNEL_HALFWIDTH, m1in, m2out, m3out );
+
+	/* get initial time */
+	gettimeofday ( &tb, NULL );
+
+	/* Work out the time */
+	s = tb.tv_sec - ta.tv_sec;
+	if ( ta.tv_usec < tb.tv_usec ) {
+	  u = tb.tv_usec - ta.tv_usec;
+	} else {
+	  u = 1000000 - ta.tv_usec + tb.tv_usec;;
+	  s = s-1;
+	}
+
+	printf ("Merged Dual Parallel smoother took %d seconds and %d microseconds\n",s,u );
   }
 }
 
