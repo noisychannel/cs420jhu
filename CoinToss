@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Data to mesure "Speedup"
+
+for threads in $(seq 1 16)
+	do 
+		echo "Threads : $threads" >> output/CoinToss/speedup.log
+		java -cp ./build/classes hw2.CoinFlip $threads 1000000000 > output/CoinToss/speedup.log
+		#java -cp ./build/classes hw2.CoinFlip $threads 10000000 >> output/CoinToss/speedup.log
+	done
+
+# Data to measure "Scaleup"
+
+for threads in $(seq 1 16)
+	do 
+		iterations=$((1000000000*$threads))
+		#iterations=$((10000000*$threads))
+		echo "Threads : $threads" >> output/CoinToss/scaleup.log
+		echo "Iterations : $iterations" >> output/CoinToss/scaleup.log
+		java -cp ./build/classes hw2.CoinFlip $threads $iterations >> output/CoinToss/scaleup.log
+	done
