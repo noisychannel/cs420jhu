@@ -95,6 +95,7 @@ class CoinFlip implements Runnable {
 	 * @return 
 	 */
 	private static int[] divideFlipsByThreads(int numthreads, int noOfIterations) {
+
 		int[] flipCount = new int[numthreads];
 		
 		for (int i = 0; i < numthreads; i++) {
@@ -109,6 +110,9 @@ class CoinFlip implements Runnable {
 			flipCount[i] = flipCount[i] + 1;
 			remainder = remainder - 1;
 			i = i + 1;
+			if (i > numthreads) {
+				i = 0;
+			}
 		}
 		
 		return flipCount;

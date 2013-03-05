@@ -115,13 +115,20 @@ public class BruteForceDES{
 			flipCount[i] = flipCount[i] + 1;
 			remainder = remainder - 1;
 			i = i + 1;
+			if (i > numthreads) {
+				i = 0;
+			}
 		}
 		
 		for (i = 0; i < numthreads; i++) {
-			for (int j = 0; j < i; j++) {
-				flipCount[i] = flipCount[i] + flipCount[j];
+			if (i != 0) {
+				flipCount[i] = flipCount[i] + flipCount[i-1];
 			}
 		}
+		
+		//Add one to the no of iterations for the final thread
+		// because the search is exclusive of the last element
+		flipCount[numthreads-1] = flipCount[numthreads-1] + 1;
 		
 		return flipCount;
 	}
