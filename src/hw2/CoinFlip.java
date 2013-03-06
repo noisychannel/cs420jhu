@@ -84,7 +84,6 @@ class CoinFlip implements Runnable {
 			try {
 				threads[i].join();
 				totalHeadCounts = totalHeadCounts + coinFlips[i].getHeadCount();
-				System.out.println(coinFlips[i].getHeadCount());
 			} catch (InterruptedException e) {
 				System.out.println("Thread interrupted.  Exception: "
 						+ e.toString() + " Message: " + e.getMessage());
