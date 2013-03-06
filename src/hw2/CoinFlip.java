@@ -14,32 +14,33 @@ import java.util.Random;
 ////////////////////////////////////////////////////////////////////////////////
 
 class CoinFlip implements Runnable {
-	int noOfIterationsForThisThread;
+	long noOfIterationsForThisThread;
 
 	// Variables with counts for Heads and Tails
-	static int headCount = 0;
-	static int tailCount = 0;
+	// Instead of using static variables in class which are synchronized, 
+	// I use private variables to avoid waits on resource locks.
+	// No of tails is just numberOfFlips - headCount
+	private long headCount = 0;
+	private long tailCount = 0;
 
 	// Run: overrides Runnabale.Run, thread entry point
 	public void run() {
+		Random random = new Random();
 		for (int i = 0; i < this.noOfIterationsForThisThread; i++) {
-			Random random = new Random();
 			int toss = random.nextInt(2);
 			if (toss == 1) {
-				synchronized (CoinFlip.class) {
-					++tailCount;
-				}
-			} else {
-				synchronized (CoinFlip.class) {
-					++headCount;
-				}
+				++this.tailCount;
 			}
 		}
 	}
-
-	// Constructor: set thread id
-	CoinFlip(int noOfIterationsForThisThread) {
-		this.noOfIterationsForThisThread = noOfIterationsForThisThread;
+	
+	public long getHeadCount() {
+		return this.headCount;
+	}
+	
+	// Constructor: set number of iterations for this thread
+	CoinFlip(long flipCount) {
+		this.noOfIterationsForThisThread = flipCount;
 	}
 
 	public static void main(String[] args) {
@@ -55,35 +56,43 @@ class CoinFlip implements Runnable {
 		int numthreads = Integer.parseInt(args[0]);
 		
 		// Get the number of iterations for the coin flips
-		int noOfIterations = Integer.parseInt(args[1]);
+		long noOfIterations = Long.parseLong(args[1]);
 		
 		// Pre-calculate the number of iterations that will be assigned to each thread
-		int[] flipCount = divideFlipsByThreads(numthreads, noOfIterations);
+		long[] flipCount = divideFlipsByThreads(numthreads, noOfIterations);
 
 		// Array to hold references to thread objects
 		Thread[] threads = new Thread[numthreads];
 		
+		// Array to hold runnable objects : CoinFlips
+		CoinFlip[] coinFlips = new CoinFlip[numthreads];
+		
 		// create and start specified thread objects of class CoinFlip
 		for (int i = 0; i < numthreads; i++) {
-			threads[i] = new Thread(new CoinFlip(flipCount[i]));
+			CoinFlip coinFlipObject = new CoinFlip(flipCount[i]);
+			coinFlips[i] = coinFlipObject;
+			threads[i] = new Thread(coinFlipObject);
 			threads[i].start();
 		}
 		
 		long intermediateRunTime = System.currentTimeMillis() - runstart;
 		System.out.println("Startup time " + String.valueOf(intermediateRunTime) + " milliseconds");
 		
+		long totalHeadCounts = 0;
+		
 		// Await the completion of all threads
 		for (int i = 0; i < numthreads; i++) {
 			try {
 				threads[i].join();
+				totalHeadCounts = totalHeadCounts + coinFlips[i].getHeadCount();
 			} catch (InterruptedException e) {
 				System.out.println("Thread interrupted.  Exception: "
 						+ e.toString() + " Message: " + e.getMessage());
 				return;
 			}
 		}
-		System.out.println("Heads = " + headCount);
-		System.out.println("Tails = " + tailCount);
+		System.out.println("Heads = " + totalHeadCounts);
+		System.out.println("Tails = " + (noOfIterations - totalHeadCounts));
 		System.out.println("Elapsed time: " + (System.currentTimeMillis() - runstart) + " milliseconds");
 	}
 
@@ -94,16 +103,16 @@ class CoinFlip implements Runnable {
 	 * @param numthreads The number of threads
 	 * @return 
 	 */
-	private static int[] divideFlipsByThreads(int numthreads, int noOfIterations) {
+	private static long[] divideFlipsByThreads(int numthreads, long noOfIterations) {
 
-		int[] flipCount = new int[numthreads];
+		long[] flipCount = new long[numthreads];
 		
 		for (int i = 0; i < numthreads; i++) {
 			flipCount[i] = noOfIterations / numthreads;
 		}
 		
 		//Handle remainder
-		int remainder = noOfIterations % numthreads;
+		long remainder = noOfIterations % numthreads;
 		int i = 0;
 		
 		while (remainder != 0) {
@@ -113,6 +122,10 @@ class CoinFlip implements Runnable {
 			if (i > numthreads) {
 				i = 0;
 			}
+		}
+		
+		for (i = 0; i < numthreads; i++) {
+			System.out.println(flipCount[i]);
 		}
 		
 		return flipCount;
