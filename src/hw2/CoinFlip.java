@@ -21,7 +21,6 @@ class CoinFlip implements Runnable {
 	// I use private variables to avoid waits on resource locks.
 	// No of tails is just numberOfFlips - headCount
 	private long headCount = 0;
-	private long tailCount = 0;
 
 	// Run: overrides Runnabale.Run, thread entry point
 	public void run() {
@@ -29,7 +28,7 @@ class CoinFlip implements Runnable {
 		for (int i = 0; i < this.noOfIterationsForThisThread; i++) {
 			int toss = random.nextInt(2);
 			if (toss == 1) {
-				++this.tailCount;
+				++this.headCount;
 			}
 		}
 	}
@@ -85,6 +84,7 @@ class CoinFlip implements Runnable {
 			try {
 				threads[i].join();
 				totalHeadCounts = totalHeadCounts + coinFlips[i].getHeadCount();
+				System.out.println(coinFlips[i].getHeadCount());
 			} catch (InterruptedException e) {
 				System.out.println("Thread interrupted.  Exception: "
 						+ e.toString() + " Message: " + e.getMessage());
@@ -122,10 +122,6 @@ class CoinFlip implements Runnable {
 			if (i > numthreads) {
 				i = 0;
 			}
-		}
-		
-		for (i = 0; i < numthreads; i++) {
-			System.out.println(flipCount[i]);
 		}
 		
 		return flipCount;
