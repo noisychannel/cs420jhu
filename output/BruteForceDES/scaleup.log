@@ -1,0 +1,1332 @@
+Threads : 1
+Key size : 2
+Experiment : 1
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000003 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4 keys at 5 milliseconds.
+Experiment : 2
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000002 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4 keys at 5 milliseconds.
+Experiment : 3
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000002 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4 keys at 5 milliseconds.
+Experiment : 4
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000001 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4 keys at 4 milliseconds.
+Experiment : 5
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000001 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4 keys at 5 milliseconds.
+Experiment : 6
+Found decrypt key 0000000000000000 producing message: Johns Hopkins afraid of the big bad wolf?
+Thread 0 Searched key number 0 at 4 milliseconds.
+Completed search of 4 keys at 5 milliseconds.
+Experiment : 7
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000002 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4 keys at 5 milliseconds.
+Experiment : 8
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000001 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4 keys at 5 milliseconds.
+Experiment : 9
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000003 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4 keys at 5 milliseconds.
+Experiment : 10
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000001 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4 keys at 5 milliseconds.
+Experiment : 11
+Found decrypt key 0000000000000000 producing message: Johns Hopkins afraid of the big bad wolf?
+Thread 0 Searched key number 0 at 4 milliseconds.
+Completed search of 4 keys at 4 milliseconds.
+Experiment : 12
+Found decrypt key 0000000000000000 producing message: Johns Hopkins afraid of the big bad wolf?
+Thread 0 Searched key number 0 at 4 milliseconds.
+Completed search of 4 keys at 5 milliseconds.
+Experiment : 13
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000003 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4 keys at 5 milliseconds.
+Experiment : 14
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000001 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4 keys at 5 milliseconds.
+Experiment : 15
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000002 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4 keys at 5 milliseconds.
+Experiment : 16
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000001 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4 keys at 5 milliseconds.
+Experiment : 17
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000003 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4 keys at 5 milliseconds.
+Experiment : 18
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000001 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4 keys at 5 milliseconds.
+Experiment : 19
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000003 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4 keys at 5 milliseconds.
+Experiment : 20
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000001 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4 keys at 5 milliseconds.
+Threads : 2
+Key size : 3
+Experiment : 1
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000003 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8 keys at 5 milliseconds.
+Experiment : 2
+Found decrypt key 0000000000000000 producing message: Johns Hopkins afraid of the big bad wolf?
+Thread 0 Searched key number 0 at 4 milliseconds.
+Completed search of 8 keys at 5 milliseconds.
+Experiment : 3
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000006 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8 keys at 4 milliseconds.
+Experiment : 4
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000003 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8 keys at 5 milliseconds.
+Experiment : 5
+Found decrypt key 0000000000000000 producing message: Johns Hopkins afraid of the big bad wolf?
+Thread 0 Searched key number 0 at 4 milliseconds.
+Completed search of 8 keys at 5 milliseconds.
+Experiment : 6
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000002 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8 keys at 5 milliseconds.
+Experiment : 7
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000005 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8 keys at 5 milliseconds.
+Experiment : 8
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000004 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8 keys at 5 milliseconds.
+Experiment : 9
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000003 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8 keys at 5 milliseconds.
+Experiment : 10
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000002 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8 keys at 5 milliseconds.
+Experiment : 11
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000003 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8 keys at 5 milliseconds.
+Experiment : 12
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000002 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8 keys at 5 milliseconds.
+Experiment : 13
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000007 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8 keys at 5 milliseconds.
+Experiment : 14
+Found decrypt key 0000000000000000 producing message: Johns Hopkins afraid of the big bad wolf?
+Thread 0 Searched key number 0 at 4 milliseconds.
+Completed search of 8 keys at 5 milliseconds.
+Experiment : 15
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000002 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8 keys at 5 milliseconds.
+Experiment : 16
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000005 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8 keys at 5 milliseconds.
+Experiment : 17
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000006 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8 keys at 5 milliseconds.
+Experiment : 18
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000005 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8 keys at 4 milliseconds.
+Experiment : 19
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000003 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8 keys at 5 milliseconds.
+Experiment : 20
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000007 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8 keys at 4 milliseconds.
+Threads : 3
+Key size : 4
+Experiment : 1
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 000000000000000a producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16 keys at 6 milliseconds.
+Experiment : 2
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000009 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16 keys at 5 milliseconds.
+Experiment : 3
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000006 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16 keys at 6 milliseconds.
+Experiment : 4
+Found decrypt key 0000000000000000 producing message: Johns Hopkins afraid of the big bad wolf?
+Thread 0 Searched key number 0 at 4 milliseconds.
+Completed search of 16 keys at 6 milliseconds.
+Experiment : 5
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000002 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16 keys at 6 milliseconds.
+Experiment : 6
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000006 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16 keys at 5 milliseconds.
+Experiment : 7
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 000000000000000f producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16 keys at 6 milliseconds.
+Experiment : 8
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000004 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16 keys at 6 milliseconds.
+Experiment : 9
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000000c producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16 keys at 5 milliseconds.
+Experiment : 10
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000002 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16 keys at 6 milliseconds.
+Experiment : 11
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 000000000000000f producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16 keys at 5 milliseconds.
+Experiment : 12
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000004 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16 keys at 6 milliseconds.
+Experiment : 13
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000003 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16 keys at 6 milliseconds.
+Experiment : 14
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000000b producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16 keys at 6 milliseconds.
+Experiment : 15
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000000d producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16 keys at 5 milliseconds.
+Experiment : 16
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000001 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16 keys at 6 milliseconds.
+Experiment : 17
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000000e producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16 keys at 5 milliseconds.
+Experiment : 18
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000004 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16 keys at 6 milliseconds.
+Experiment : 19
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000000d producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16 keys at 6 milliseconds.
+Experiment : 20
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000005 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16 keys at 7 milliseconds.
+Threads : 4
+Key size : 5
+Experiment : 1
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000015 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32 keys at 7 milliseconds.
+Experiment : 2
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000007 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32 keys at 7 milliseconds.
+Experiment : 3
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000002 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32 keys at 6 milliseconds.
+Experiment : 4
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000019 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32 keys at 6 milliseconds.
+Experiment : 5
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000009 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32 keys at 6 milliseconds.
+Experiment : 6
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000000c producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32 keys at 7 milliseconds.
+Experiment : 7
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000014 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32 keys at 6 milliseconds.
+Experiment : 8
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000017 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32 keys at 6 milliseconds.
+Experiment : 9
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000002 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32 keys at 5 milliseconds.
+Experiment : 10
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000010 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32 keys at 5 milliseconds.
+Experiment : 11
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000012 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32 keys at 5 milliseconds.
+Experiment : 12
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000000f producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32 keys at 7 milliseconds.
+Experiment : 13
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000012 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32 keys at 5 milliseconds.
+Experiment : 14
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000001 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32 keys at 6 milliseconds.
+Experiment : 15
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000001 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32 keys at 6 milliseconds.
+Experiment : 16
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000014 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32 keys at 6 milliseconds.
+Experiment : 17
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000013 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32 keys at 7 milliseconds.
+Experiment : 18
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000003 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32 keys at 7 milliseconds.
+Experiment : 19
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000005 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32 keys at 6 milliseconds.
+Experiment : 20
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000018 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32 keys at 6 milliseconds.
+Threads : 5
+Key size : 6
+Experiment : 1
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000025 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 64 keys at 8 milliseconds.
+Experiment : 2
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 000000000000001c producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 64 keys at 6 milliseconds.
+Experiment : 3
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000033 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 64 keys at 7 milliseconds.
+Experiment : 4
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000017 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 64 keys at 7 milliseconds.
+Experiment : 5
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000003f producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 64 keys at 7 milliseconds.
+Experiment : 6
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000003c producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 64 keys at 7 milliseconds.
+Experiment : 7
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000008 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 64 keys at 8 milliseconds.
+Experiment : 8
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000038 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 64 keys at 8 milliseconds.
+Experiment : 9
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000028 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 64 keys at 7 milliseconds.
+Experiment : 10
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 000000000000003f producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 64 keys at 7 milliseconds.
+Experiment : 11
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000001e producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 64 keys at 7 milliseconds.
+Experiment : 12
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000025 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 64 keys at 8 milliseconds.
+Experiment : 13
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000025 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 64 keys at 8 milliseconds.
+Experiment : 14
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 000000000000000d producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 64 keys at 7 milliseconds.
+Experiment : 15
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000033 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 64 keys at 7 milliseconds.
+Experiment : 16
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000003c producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 64 keys at 8 milliseconds.
+Experiment : 17
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000031 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 64 keys at 8 milliseconds.
+Experiment : 18
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000012 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 64 keys at 7 milliseconds.
+Experiment : 19
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000031 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 64 keys at 8 milliseconds.
+Experiment : 20
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000023 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 64 keys at 7 milliseconds.
+Threads : 6
+Key size : 7
+Experiment : 1
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000020 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 128 keys at 9 milliseconds.
+Experiment : 2
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000014 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 128 keys at 8 milliseconds.
+Experiment : 3
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000006d producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 128 keys at 10 milliseconds.
+Experiment : 4
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000032 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 128 keys at 9 milliseconds.
+Experiment : 5
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000026 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 128 keys at 9 milliseconds.
+Experiment : 6
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000004a producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 128 keys at 9 milliseconds.
+Experiment : 7
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000031 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 128 keys at 10 milliseconds.
+Experiment : 8
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000004f producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 128 keys at 10 milliseconds.
+Experiment : 9
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000001a producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 128 keys at 10 milliseconds.
+Experiment : 10
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000007b producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 128 keys at 9 milliseconds.
+Experiment : 11
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000045 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 128 keys at 9 milliseconds.
+Experiment : 12
+Found decrypt key 0000000000000000 producing message: Johns Hopkins afraid of the big bad wolf?
+Thread 0 Searched key number 0 at 4 milliseconds.
+Completed search of 128 keys at 8 milliseconds.
+Experiment : 13
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000050 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 128 keys at 10 milliseconds.
+Experiment : 14
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000005d producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 128 keys at 9 milliseconds.
+Experiment : 15
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000024 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 128 keys at 9 milliseconds.
+Experiment : 16
+Found decrypt key 0000000000000000 producing message: Johns Hopkins afraid of the big bad wolf?
+Thread 0 Searched key number 0 at 6 milliseconds.
+Completed search of 128 keys at 10 milliseconds.
+Experiment : 17
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000019 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 128 keys at 10 milliseconds.
+Experiment : 18
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000006 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 128 keys at 10 milliseconds.
+Experiment : 19
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000010 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 128 keys at 9 milliseconds.
+Experiment : 20
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000006d producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 128 keys at 9 milliseconds.
+Threads : 7
+Key size : 8
+Experiment : 1
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000047 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 256 keys at 13 milliseconds.
+Experiment : 2
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000072 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 256 keys at 13 milliseconds.
+Experiment : 3
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000045 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 256 keys at 13 milliseconds.
+Experiment : 4
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 00000000000000af producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 256 keys at 13 milliseconds.
+Experiment : 5
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 00000000000000a2 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 256 keys at 14 milliseconds.
+Experiment : 6
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 00000000000000d1 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 256 keys at 13 milliseconds.
+Experiment : 7
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000043 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 256 keys at 13 milliseconds.
+Experiment : 8
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000005b producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 256 keys at 12 milliseconds.
+Experiment : 9
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000098 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 256 keys at 12 milliseconds.
+Experiment : 10
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000018 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 256 keys at 13 milliseconds.
+Experiment : 11
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000030 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 256 keys at 12 milliseconds.
+Experiment : 12
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000001d producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 256 keys at 12 milliseconds.
+Experiment : 13
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000000b1 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 256 keys at 12 milliseconds.
+Experiment : 14
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000000a8 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 256 keys at 13 milliseconds.
+Experiment : 15
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000000a producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 256 keys at 13 milliseconds.
+Experiment : 16
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 000000000000002a producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 256 keys at 13 milliseconds.
+Experiment : 17
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000000c7 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 256 keys at 12 milliseconds.
+Experiment : 18
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000099 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 256 keys at 12 milliseconds.
+Experiment : 19
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000000bc producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 256 keys at 12 milliseconds.
+Experiment : 20
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000088 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 256 keys at 13 milliseconds.
+Threads : 8
+Key size : 9
+Experiment : 1
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000008 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 512 keys at 20 milliseconds.
+Experiment : 2
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000125 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 512 keys at 20 milliseconds.
+Experiment : 3
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000093 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 512 keys at 20 milliseconds.
+Experiment : 4
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000021 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 512 keys at 20 milliseconds.
+Experiment : 5
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 000000000000007c producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 512 keys at 19 milliseconds.
+Experiment : 6
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000000b9 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 512 keys at 19 milliseconds.
+Experiment : 7
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000065 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 512 keys at 20 milliseconds.
+Experiment : 8
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 00000000000000f3 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 512 keys at 23 milliseconds.
+Experiment : 9
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000000bf producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 512 keys at 21 milliseconds.
+Experiment : 10
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 00000000000001a4 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 512 keys at 19 milliseconds.
+Experiment : 11
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000158 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 512 keys at 20 milliseconds.
+Experiment : 12
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 000000000000015d producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 512 keys at 20 milliseconds.
+Experiment : 13
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 00000000000001a0 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 512 keys at 19 milliseconds.
+Experiment : 14
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000196 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 512 keys at 21 milliseconds.
+Experiment : 15
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000196 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 512 keys at 20 milliseconds.
+Experiment : 16
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000187 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 512 keys at 22 milliseconds.
+Experiment : 17
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000001c8 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 512 keys at 21 milliseconds.
+Experiment : 18
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000023 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 512 keys at 21 milliseconds.
+Experiment : 19
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000034 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 512 keys at 21 milliseconds.
+Experiment : 20
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000001e producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 512 keys at 20 milliseconds.
+Threads : 9
+Key size : 10
+Experiment : 1
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000003f producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 1024 keys at 35 milliseconds.
+Experiment : 2
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 00000000000000f4 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 1024 keys at 35 milliseconds.
+Experiment : 3
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000003a5 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 1024 keys at 35 milliseconds.
+Experiment : 4
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000001ca producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 1024 keys at 36 milliseconds.
+Experiment : 5
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000003e3 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 1024 keys at 36 milliseconds.
+Experiment : 6
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000131 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 1024 keys at 36 milliseconds.
+Experiment : 7
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000098 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 1024 keys at 35 milliseconds.
+Experiment : 8
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000082 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 1024 keys at 37 milliseconds.
+Experiment : 9
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000256 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 1024 keys at 35 milliseconds.
+Experiment : 10
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 00000000000002c7 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 1024 keys at 37 milliseconds.
+Experiment : 11
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000206 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 1024 keys at 36 milliseconds.
+Experiment : 12
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000000df producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 1024 keys at 37 milliseconds.
+Experiment : 13
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000050 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 1024 keys at 36 milliseconds.
+Experiment : 14
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 000000000000033e producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 1024 keys at 36 milliseconds.
+Experiment : 15
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000000d9 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 1024 keys at 36 milliseconds.
+Experiment : 16
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000000f7 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 1024 keys at 36 milliseconds.
+Experiment : 17
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000110 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 1024 keys at 37 milliseconds.
+Experiment : 18
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000029 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 1024 keys at 36 milliseconds.
+Experiment : 19
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000002c4 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 1024 keys at 36 milliseconds.
+Experiment : 20
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000002c4 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 1024 keys at 39 milliseconds.
+Threads : 10
+Key size : 11
+Experiment : 1
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000006d9 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 2048 keys at 52 milliseconds.
+Experiment : 2
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000005ea producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 2048 keys at 55 milliseconds.
+Experiment : 3
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000006b8 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 2048 keys at 51 milliseconds.
+Experiment : 4
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000003ac producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 2048 keys at 52 milliseconds.
+Experiment : 5
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000000f6 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 2048 keys at 52 milliseconds.
+Experiment : 6
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000642 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 2048 keys at 58 milliseconds.
+Experiment : 7
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000004b0 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 2048 keys at 56 milliseconds.
+Experiment : 8
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000188 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 2048 keys at 56 milliseconds.
+Experiment : 9
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000230 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 2048 keys at 55 milliseconds.
+Experiment : 10
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000139 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 2048 keys at 55 milliseconds.
+Experiment : 11
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000495 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 2048 keys at 54 milliseconds.
+Experiment : 12
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 000000000000058d producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 2048 keys at 54 milliseconds.
+Experiment : 13
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000338 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 2048 keys at 51 milliseconds.
+Experiment : 14
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000000b5 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 2048 keys at 51 milliseconds.
+Experiment : 15
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 00000000000001e5 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 2048 keys at 51 milliseconds.
+Experiment : 16
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 000000000000074e producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 2048 keys at 51 milliseconds.
+Experiment : 17
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000077a producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 2048 keys at 53 milliseconds.
+Experiment : 18
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000716 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 2048 keys at 53 milliseconds.
+Experiment : 19
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000095 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 2048 keys at 52 milliseconds.
+Experiment : 20
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000003f5 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 2048 keys at 55 milliseconds.
+Threads : 11
+Key size : 12
+Experiment : 1
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 000000000000081e producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4096 keys at 84 milliseconds.
+Experiment : 2
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000007fd producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4096 keys at 86 milliseconds.
+Experiment : 3
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000df8 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4096 keys at 82 milliseconds.
+Experiment : 4
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000007c2 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4096 keys at 82 milliseconds.
+Experiment : 5
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 00000000000007ec producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4096 keys at 80 milliseconds.
+Experiment : 6
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000bb5 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4096 keys at 81 milliseconds.
+Experiment : 7
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 000000000000093a producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4096 keys at 81 milliseconds.
+Experiment : 8
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000e2b producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4096 keys at 87 milliseconds.
+Experiment : 9
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 00000000000006ea producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4096 keys at 88 milliseconds.
+Experiment : 10
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000006b6 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4096 keys at 82 milliseconds.
+Experiment : 11
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000048e producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4096 keys at 82 milliseconds.
+Experiment : 12
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000850 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4096 keys at 91 milliseconds.
+Experiment : 13
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 000000000000094f producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4096 keys at 84 milliseconds.
+Experiment : 14
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000ca2 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4096 keys at 81 milliseconds.
+Experiment : 15
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000e1c producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4096 keys at 86 milliseconds.
+Experiment : 16
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 00000000000001df producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4096 keys at 82 milliseconds.
+Experiment : 17
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000359 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4096 keys at 80 milliseconds.
+Experiment : 18
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000733 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4096 keys at 82 milliseconds.
+Experiment : 19
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000898 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4096 keys at 85 milliseconds.
+Experiment : 20
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000f5e producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 4096 keys at 91 milliseconds.
+Threads : 12
+Key size : 13
+Experiment : 1
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000001f67 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8192 keys at 141 milliseconds.
+Experiment : 2
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000ecd producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8192 keys at 136 milliseconds.
+Experiment : 3
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000162b producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8192 keys at 141 milliseconds.
+Experiment : 4
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000001a62 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8192 keys at 134 milliseconds.
+Experiment : 5
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000017f9 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8192 keys at 133 milliseconds.
+Experiment : 6
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000001113 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8192 keys at 136 milliseconds.
+Experiment : 7
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000138f producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8192 keys at 133 milliseconds.
+Experiment : 8
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 00000000000012a0 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8192 keys at 131 milliseconds.
+Experiment : 9
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000001a30 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8192 keys at 132 milliseconds.
+Experiment : 10
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000008dc producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8192 keys at 132 milliseconds.
+Experiment : 11
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000ead producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8192 keys at 129 milliseconds.
+Experiment : 12
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000139d producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8192 keys at 130 milliseconds.
+Experiment : 13
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 000000000000138f producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8192 keys at 130 milliseconds.
+Experiment : 14
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000190c producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8192 keys at 128 milliseconds.
+Experiment : 15
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000008c9 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8192 keys at 129 milliseconds.
+Experiment : 16
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000001448 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8192 keys at 136 milliseconds.
+Experiment : 17
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000001a9e producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8192 keys at 132 milliseconds.
+Experiment : 18
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000526 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8192 keys at 130 milliseconds.
+Experiment : 19
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000d2a producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8192 keys at 131 milliseconds.
+Experiment : 20
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000004b5 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 8192 keys at 131 milliseconds.
+Threads : 13
+Key size : 14
+Experiment : 1
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000002b11 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16384 keys at 229 milliseconds.
+Experiment : 2
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000390b producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16384 keys at 232 milliseconds.
+Experiment : 3
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000002edb producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16384 keys at 222 milliseconds.
+Experiment : 4
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 00000000000028bb producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16384 keys at 230 milliseconds.
+Experiment : 5
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000e1c producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16384 keys at 216 milliseconds.
+Experiment : 6
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000002d78 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16384 keys at 228 milliseconds.
+Experiment : 7
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000ce2 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16384 keys at 222 milliseconds.
+Experiment : 8
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000027f8 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16384 keys at 222 milliseconds.
+Experiment : 9
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 00000000000019dc producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16384 keys at 237 milliseconds.
+Experiment : 10
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000003c5a producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16384 keys at 232 milliseconds.
+Experiment : 11
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000003900 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16384 keys at 225 milliseconds.
+Experiment : 12
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000003e04 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16384 keys at 221 milliseconds.
+Experiment : 13
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000012cb producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16384 keys at 223 milliseconds.
+Experiment : 14
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000ff3 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16384 keys at 224 milliseconds.
+Experiment : 15
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000000d50 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16384 keys at 215 milliseconds.
+Experiment : 16
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000003dfb producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16384 keys at 215 milliseconds.
+Experiment : 17
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000003d55 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16384 keys at 220 milliseconds.
+Experiment : 18
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000003a19 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16384 keys at 218 milliseconds.
+Experiment : 19
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000003964 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16384 keys at 217 milliseconds.
+Experiment : 20
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000000b56 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 16384 keys at 221 milliseconds.
+Threads : 14
+Key size : 15
+Experiment : 1
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000007af7 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32768 keys at 318 milliseconds.
+Experiment : 2
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000004e2a producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32768 keys at 319 milliseconds.
+Experiment : 3
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 00000000000034f5 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32768 keys at 317 milliseconds.
+Experiment : 4
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 00000000000045c1 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32768 keys at 317 milliseconds.
+Experiment : 5
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000427f producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32768 keys at 338 milliseconds.
+Experiment : 6
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000076ce producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32768 keys at 314 milliseconds.
+Experiment : 7
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000001c47 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32768 keys at 320 milliseconds.
+Experiment : 8
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000005ce1 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32768 keys at 338 milliseconds.
+Experiment : 9
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000002c68 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32768 keys at 352 milliseconds.
+Experiment : 10
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000004eb0 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32768 keys at 329 milliseconds.
+Experiment : 11
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000002532 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32768 keys at 315 milliseconds.
+Experiment : 12
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000005d25 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32768 keys at 367 milliseconds.
+Experiment : 13
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000002a5 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32768 keys at 316 milliseconds.
+Experiment : 14
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000002491 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32768 keys at 322 milliseconds.
+Experiment : 15
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000004aee producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32768 keys at 314 milliseconds.
+Experiment : 16
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000006313 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32768 keys at 315 milliseconds.
+Experiment : 17
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 00000000000025d5 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32768 keys at 355 milliseconds.
+Experiment : 18
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000007f01 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32768 keys at 325 milliseconds.
+Experiment : 19
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000052de producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32768 keys at 326 milliseconds.
+Experiment : 20
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000755d producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 32768 keys at 313 milliseconds.
+Threads : 15
+Key size : 16
+Experiment : 1
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000402a producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 65536 keys at 456 milliseconds.
+Experiment : 2
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000007748 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 65536 keys at 409 milliseconds.
+Experiment : 3
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 000000000000016c producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 65536 keys at 422 milliseconds.
+Experiment : 4
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 000000000000c81a producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 65536 keys at 434 milliseconds.
+Experiment : 5
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000e412 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 65536 keys at 399 milliseconds.
+Experiment : 6
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000003fdc producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 65536 keys at 401 milliseconds.
+Experiment : 7
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000003c79 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 65536 keys at 392 milliseconds.
+Experiment : 8
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 00000000000064ef producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 65536 keys at 407 milliseconds.
+Experiment : 9
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000fb61 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 65536 keys at 429 milliseconds.
+Experiment : 10
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000d16d producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 65536 keys at 430 milliseconds.
+Experiment : 11
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 00000000000095ef producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 65536 keys at 402 milliseconds.
+Experiment : 12
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000079cb producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 65536 keys at 417 milliseconds.
+Experiment : 13
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000c303 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 65536 keys at 430 milliseconds.
+Experiment : 14
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000768d producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 65536 keys at 427 milliseconds.
+Experiment : 15
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000f597 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 65536 keys at 411 milliseconds.
+Experiment : 16
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000003867 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 65536 keys at 430 milliseconds.
+Experiment : 17
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 0000000000007013 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 65536 keys at 421 milliseconds.
+Experiment : 18
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 0000000000002dc9 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 65536 keys at 409 milliseconds.
+Experiment : 19
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000038b5 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 65536 keys at 403 milliseconds.
+Experiment : 20
+Thread 0 Searched key number 0 at 1 milliseconds.
+Found decrypt key 000000000000e3c0 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 65536 keys at 395 milliseconds.
+Threads : 16
+Key size : 17
+Experiment : 1
+Thread 0 Searched key number 0 at 0 milliseconds.
+Thread 12 Searched key number 100000 at 302 milliseconds.
+Found decrypt key 000000000000340d producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 131072 keys at 507 milliseconds.
+Experiment : 2
+Thread 0 Searched key number 0 at 0 milliseconds.
+Thread 12 Searched key number 100000 at 302 milliseconds.
+Found decrypt key 000000000001aa22 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 131072 keys at 535 milliseconds.
+Experiment : 3
+Thread 0 Searched key number 0 at 1 milliseconds.
+Thread 12 Searched key number 100000 at 227 milliseconds.
+Found decrypt key 000000000000e79b producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 131072 keys at 650 milliseconds.
+Experiment : 4
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000001037e producing message: Johns Hopkins afraid of the big bad wolf?
+Thread 12 Searched key number 100000 at 407 milliseconds.
+Completed search of 131072 keys at 741 milliseconds.
+Experiment : 5
+Thread 0 Searched key number 0 at 0 milliseconds.
+Thread 12 Searched key number 100000 at 388 milliseconds.
+Found decrypt key 0000000000006c2c producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 131072 keys at 718 milliseconds.
+Experiment : 6
+Thread 0 Searched key number 0 at 0 milliseconds.
+Thread 12 Searched key number 100000 at 274 milliseconds.
+Found decrypt key 0000000000019ea7 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 131072 keys at 535 milliseconds.
+Experiment : 7
+Thread 0 Searched key number 0 at 0 milliseconds.
+Thread 12 Searched key number 100000 at 272 milliseconds.
+Found decrypt key 000000000000e914 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 131072 keys at 521 milliseconds.
+Experiment : 8
+Thread 0 Searched key number 0 at 0 milliseconds.
+Thread 12 Searched key number 100000 at 297 milliseconds.
+Found decrypt key 000000000000d52e producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 131072 keys at 513 milliseconds.
+Experiment : 9
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000001c1b1 producing message: Johns Hopkins afraid of the big bad wolf?
+Thread 12 Searched key number 100000 at 299 milliseconds.
+Completed search of 131072 keys at 551 milliseconds.
+Experiment : 10
+Thread 0 Searched key number 0 at 0 milliseconds.
+Thread 12 Searched key number 100000 at 324 milliseconds.
+Found decrypt key 00000000000055a0 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 131072 keys at 583 milliseconds.
+Experiment : 11
+Thread 0 Searched key number 0 at 0 milliseconds.
+Thread 12 Searched key number 100000 at 316 milliseconds.
+Found decrypt key 000000000000f546 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 131072 keys at 580 milliseconds.
+Experiment : 12
+Thread 0 Searched key number 0 at 1 milliseconds.
+Thread 12 Searched key number 100000 at 251 milliseconds.
+Found decrypt key 000000000000f356 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 131072 keys at 515 milliseconds.
+Experiment : 13
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000001085b producing message: Johns Hopkins afraid of the big bad wolf?
+Thread 12 Searched key number 100000 at 299 milliseconds.
+Completed search of 131072 keys at 537 milliseconds.
+Experiment : 14
+Thread 0 Searched key number 0 at 0 milliseconds.
+Thread 12 Searched key number 100000 at 275 milliseconds.
+Found decrypt key 000000000000c8e3 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 131072 keys at 515 milliseconds.
+Experiment : 15
+Thread 0 Searched key number 0 at 0 milliseconds.
+Thread 12 Searched key number 100000 at 300 milliseconds.
+Found decrypt key 000000000000131b producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 131072 keys at 518 milliseconds.
+Experiment : 16
+Thread 0 Searched key number 0 at 0 milliseconds.
+Thread 12 Searched key number 100000 at 317 milliseconds.
+Found decrypt key 00000000000169f4 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 131072 keys at 544 milliseconds.
+Experiment : 17
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 000000000000838b producing message: Johns Hopkins afraid of the big bad wolf?
+Thread 12 Searched key number 100000 at 268 milliseconds.
+Completed search of 131072 keys at 528 milliseconds.
+Experiment : 18
+Thread 0 Searched key number 0 at 0 milliseconds.
+Found decrypt key 00000000000086fc producing message: Johns Hopkins afraid of the big bad wolf?
+Thread 12 Searched key number 100000 at 277 milliseconds.
+Completed search of 131072 keys at 519 milliseconds.
+Experiment : 19
+Thread 0 Searched key number 0 at 1 milliseconds.
+Thread 12 Searched key number 100000 at 329 milliseconds.
+Found decrypt key 0000000000019d84 producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 131072 keys at 539 milliseconds.
+Experiment : 20
+Thread 0 Searched key number 0 at 0 milliseconds.
+Thread 12 Searched key number 100000 at 262 milliseconds.
+Found decrypt key 00000000000186db producing message: Johns Hopkins afraid of the big bad wolf?
+Completed search of 131072 keys at 517 milliseconds.

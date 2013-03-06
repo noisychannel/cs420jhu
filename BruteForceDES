@@ -9,7 +9,7 @@ for threads in $(seq 1 16)
 		for i in $(seq 1 20)
 			do
 				echo "Experiment : $i" >> output/BruteForceDES/speedup.log
-#				java -cp ./build/classes hw2.BruteForceDES $threads 8 > output/BruteForceDES/speedup.log
+				java -cp ./build/classes hw2.BruteForceDES $threads 20 > output/BruteForceDES/speedup.log
 			done
 	done
 
@@ -17,7 +17,7 @@ for threads in $(seq 1 16)
 
 for threads in $(seq 1 16)
 	do 
-		key_size=$((1+$threads))
+		key_size=$((8+$threads))
 		echo "Threads : $threads" >> output/BruteForceDES/scaleup.log
 		echo "Key size : $key_size" >> output/BruteForceDES/scaleup.log
 		for i in $(seq 1 20)
