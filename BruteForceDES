@@ -1,21 +1,28 @@
 #!/bin/sh
 
+# For BruteForceDES
 # Data to mesure "Speedup"
 
 for threads in $(seq 1 16)
 	do 
-		echo "Threads : $threads" >> output/CoinToss/speedup.log
-		java -cp ./build/classes hw2.CoinFlip $threads 1000000000 > output/CoinToss/speedup.log
-		#java -cp ./build/classes hw2.CoinFlip $threads 10000000 >> output/CoinToss/speedup.log
+		echo "Threads : $threads" >> output/BruteForceDES/speedup.log
+		for i in $(seq 1 20)
+			do
+				echo "Experiment : $i" >> output/BruteForceDES/speedup.log
+#				java -cp ./build/classes hw2.BruteForceDES $threads 8 > output/BruteForceDES/speedup.log
+			done
 	done
 
 # Data to measure "Scaleup"
 
 for threads in $(seq 1 16)
 	do 
-		iterations=$((1000000000*$threads))
-		#iterations=$((10000000*$threads))
-		echo "Threads : $threads" >> output/CoinToss/scaleup.log
-		echo "Iterations : $iterations" >> output/CoinToss/scaleup.log
-		java -cp ./build/classes hw2.CoinFlip $threads $iterations >> output/CoinToss/scaleup.log
+		key_size=$((1+$threads))
+		echo "Threads : $threads" >> output/BruteForceDES/scaleup.log
+		echo "Key size : $key_size" >> output/BruteForceDES/scaleup.log
+		for i in $(seq 1 20)
+			do
+				echo "Experiment : $i" >> output/BruteForceDES/scaleup.log
+				java -cp ./build/classes hw2.BruteForceDES $threads $key_size >> output/BruteForceDES/scaleup.log
+			done
 	done
