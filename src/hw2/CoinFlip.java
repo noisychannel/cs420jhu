@@ -16,6 +16,7 @@ import java.util.Random;
 class CoinFlip implements Runnable {
 
 	private long noOfIterationsForThisThread;
+	private Random random;
 
 	// Variables with counts for Heads and Tails
 	// Instead of using static variables in class which are synchronized,
@@ -26,13 +27,14 @@ class CoinFlip implements Runnable {
 	// Constructor: set number of iterations for this thread
 	CoinFlip(long flipCount) {
 		this.noOfIterationsForThisThread = flipCount;
+		this.random = new Random();
 	}
 
 	// Run: overrides Runnabale.Run, thread entry point
 	public void run() {
-		Random random = new Random();
+		
 		for (int i = 0; i < this.noOfIterationsForThisThread; i++) {
-			int toss = random.nextInt(2);
+			int toss = this.random.nextInt(2);
 			if (toss == 1) {
 				++this.headCount;
 			}
