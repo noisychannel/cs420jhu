@@ -1,0 +1,30 @@
+[Gaurav@mtw-10-164-204-203-2:/Applications/MAMP/htdocs/cs420]$ java -cp build/classes/ hw2.CoinFlipMain 100 1000000000
+Startup time 1149 milliseconds
+Heads = 499974445
+Tails = 500025555
+Elapsed time: 2106 milliseconds
+[Gaurav@mtw-10-164-204-203-2:/Applications/MAMP/htdocs/cs420]$ java -cp build/classes/ hw2.CoinFlipMain 100 1000000000
+Startup time 1223 milliseconds
+Heads = 499981625
+Tails = 500018375
+Elapsed time: 2078 milliseconds
+[Gaurav@mtw-10-164-204-203-2:/Applications/MAMP/htdocs/cs420]$ java -cp build/classes/ hw2.CoinFlipMain 500 1000000000
+Startup time 2094 milliseconds
+Heads = 499971698
+Tails = 500028302
+Elapsed time: 2128 milliseconds
+[Gaurav@mtw-10-164-204-203-2:/Applications/MAMP/htdocs/cs420]$ java -cp build/classes/ hw2.CoinFlipMain 1000 1000000000
+Startup time 2195 milliseconds
+Heads = 500006177
+Tails = 499993823
+Elapsed time: 2211 milliseconds
+[Gaurav@mtw-10-164-204-203-2:/Applications/MAMP/htdocs/cs420]$ java -cp build/classes/ hw2.CoinFlipMain 1000 1000000000
+Startup time 2174 milliseconds
+Heads = 500011892
+Tails = 499988108
+Elapsed time: 2189 milliseconds
+[Gaurav@mtw-10-164-204-203-2:/Applications/MAMP/htdocs/cs420]$ java -cp build/classes/ hw2.CoinFlipMain 500 1000000000
+Startup time 2087 milliseconds
+Heads = 499982686
+Tails = 500017314
+Elapsed time: 2117 milliseconds

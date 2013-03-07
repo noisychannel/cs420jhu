@@ -5,24 +5,27 @@
 
 for threads in $(seq 1 16)
 	do 
-		echo "Threads : $threads" >> output/BruteForceDES/speedup.log
+		#echo "Threads : $threads" >> output/BruteForceDES/speedup.log
 		for i in $(seq 1 5)
 			do
-				echo "Experiment : $i" >> output/BruteForceDES/speedup.log
-				java -cp ./build/classes -Xmx6g hw2.BruteForceDES $threads 20 > output/BruteForceDES/speedup.log
+				#echo "Experiment : $i" >> output/BruteForceDES/speedup.log
+				#java -cp ./build/classes -Xmx6g hw2.BruteForceDES $threads 20 > output/BruteForceDES/speedup.log
+				echo ""
 			done
 	done
 
 # Data to measure "Scaleup"
 
-for threads in $(seq 1 16)
+for threadIndex in $(seq 0 4)
 	do 
-		key_size=$((8+$threads))
+		threads=$((2**$threadIndex))
+		key_size=$((20+$threadIndex))
 		echo "Threads : $threads" >> output/BruteForceDES/scaleup.log
 		echo "Key size : $key_size" >> output/BruteForceDES/scaleup.log
 		for i in $(seq 1 5)
 			do
 				echo "Experiment : $i" >> output/BruteForceDES/scaleup.log
 				java -cp ./build/classes -Xmx6g hw2.BruteForceDES $threads $key_size >> output/BruteForceDES/scaleup.log
+				echo ""
 			done
 	done

@@ -21,19 +21,11 @@ public class CoinFlipMain {
 		// thread
 		long[] flipCount = divideFlipsByThreads(numthreads, noOfIterations);
 
-		for (int i = 0; i < numthreads; i++) {
-			System.out.println(flipCount[i]);
-		}
-
 		// Array to hold references to thread objects
 		Thread[] threads = new Thread[numthreads];
 
-		System.out.println(threads.length);
-
 		// Array to hold runnable objects : CoinFlips
 		CoinFlip[] coinFlips = new CoinFlip[numthreads];
-
-		System.out.println(coinFlips.length);
 
 		// create and start specified thread objects of class CoinFlip
 		for (int i = 0; i < numthreads; i++) {
