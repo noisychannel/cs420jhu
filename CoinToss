@@ -1,14 +1,15 @@
 #!/bin/sh
 
+# For CoinToss
 # Data to mesure "Speedup"
 
 for threads in $(seq 1 16)
 	do 
-		echo "Threads : $threads" >> output/CoinToss/speedup.log
+		echo "Threads : $threads" >> output/CoinToss/speedup3.log
 		for i in $(seq 1 20)
 			do
-				echo "Experiment : $i" >> output/CoinToss/speedup.log
-				java -cp ./build/classes hw2.CoinFlip $threads 1000000000 >> output/CoinToss/speedup.log
+				echo "Experiment : $i" >> output/CoinToss/speedup3.log
+				java -cp ./build/classes -Xmx6g hw2.CoinFlip $threads 1000000000 >> output/CoinToss/speedup3.log
 			done
 	done
 
@@ -17,11 +18,11 @@ for threads in $(seq 1 16)
 for threads in $(seq 1 16)
 	do 
 		iterations=$((1000000000*$threads))
-		echo "Threads : $threads" >> output/CoinToss/scaleup.log
-		echo "Iterations : $iterations" >> output/CoinToss/scaleup.log
+		echo "Threads : $threads" >> output/CoinToss/scaleup3.log
+		echo "Iterations : $iterations" >> output/CoinToss/scaleup3.log
 		for i in $(seq 1 5)
 			do
-				echo "Experiment : $i" >> output/CoinToss/scaleup.log
-				java -cp ./build/classes hw2.CoinFlip $threads $iterations >> output/CoinToss/scaleup.log
+				echo "Experiment : $i" >> output/CoinToss/scaleup3.log
+				java -cp ./build/classes -Xmx6g hw2.CoinFlip $threads $iterations >> output/CoinToss/scaleup3.log
 			done
 	done
