@@ -1,0 +1,432 @@
+Threads : 1
+Iterations : 1000000000
+Experiment : 1
+Startup time 0 milliseconds
+Heads = 499981912
+Tails = 500018088
+Elapsed time: 22738 milliseconds
+Experiment : 2
+Startup time 0 milliseconds
+Heads = 500015144
+Tails = 499984856
+Elapsed time: 22761 milliseconds
+Experiment : 3
+Startup time 0 milliseconds
+Heads = 500004197
+Tails = 499995803
+Elapsed time: 22747 milliseconds
+Experiment : 4
+Startup time 0 milliseconds
+Heads = 500003405
+Tails = 499996595
+Elapsed time: 22746 milliseconds
+Experiment : 5
+Startup time 0 milliseconds
+Heads = 499983104
+Tails = 500016896
+Elapsed time: 22739 milliseconds
+Threads : 2
+Iterations : 2000000000
+Experiment : 1
+Startup time 0 milliseconds
+Heads = 1000004420
+Tails = 999995580
+Elapsed time: 22788 milliseconds
+Experiment : 2
+Startup time 1 milliseconds
+Heads = 999953481
+Tails = 1000046519
+Elapsed time: 22772 milliseconds
+Experiment : 3
+Startup time 1 milliseconds
+Heads = 1000016750
+Tails = 999983250
+Elapsed time: 22764 milliseconds
+Experiment : 4
+Startup time 1 milliseconds
+Heads = 1000039490
+Tails = 999960510
+Elapsed time: 22742 milliseconds
+Experiment : 5
+Startup time 1 milliseconds
+Heads = 1000000760
+Tails = 999999240
+Elapsed time: 22766 milliseconds
+Threads : 3
+Iterations : 3000000000
+Experiment : 1
+Startup time 0 milliseconds
+Heads = 1499971651
+Tails = 1500028349
+Elapsed time: 22768 milliseconds
+Experiment : 2
+Startup time 1 milliseconds
+Heads = 1500007165
+Tails = 1499992835
+Elapsed time: 22785 milliseconds
+Experiment : 3
+Startup time 0 milliseconds
+Heads = 1499999188
+Tails = 1500000812
+Elapsed time: 22757 milliseconds
+Experiment : 4
+Startup time 1 milliseconds
+Heads = 1499985724
+Tails = 1500014276
+Elapsed time: 22765 milliseconds
+Experiment : 5
+Startup time 0 milliseconds
+Heads = 1499993367
+Tails = 1500006633
+Elapsed time: 22771 milliseconds
+Threads : 4
+Iterations : 4000000000
+Experiment : 1
+Startup time 1 milliseconds
+Heads = 1999979588
+Tails = 2000020412
+Elapsed time: 22772 milliseconds
+Experiment : 2
+Startup time 1 milliseconds
+Heads = 2000005956
+Tails = 1999994044
+Elapsed time: 22762 milliseconds
+Experiment : 3
+Startup time 1 milliseconds
+Heads = 2000055548
+Tails = 1999944452
+Elapsed time: 22760 milliseconds
+Experiment : 4
+Startup time 2 milliseconds
+Heads = 2000046225
+Tails = 1999953775
+Elapsed time: 22765 milliseconds
+Experiment : 5
+Startup time 1 milliseconds
+Heads = 2000035663
+Tails = 1999964337
+Elapsed time: 22756 milliseconds
+Threads : 5
+Iterations : 5000000000
+Experiment : 1
+Startup time 1 milliseconds
+Heads = 2499996567
+Tails = 2500003433
+Elapsed time: 22776 milliseconds
+Experiment : 2
+Startup time 1 milliseconds
+Heads = 2499949975
+Tails = 2500050025
+Elapsed time: 22798 milliseconds
+Experiment : 3
+Startup time 1 milliseconds
+Heads = 2500024766
+Tails = 2499975234
+Elapsed time: 22808 milliseconds
+Experiment : 4
+Startup time 2 milliseconds
+Heads = 2500001740
+Tails = 2499998260
+Elapsed time: 22817 milliseconds
+Experiment : 5
+Startup time 1 milliseconds
+Heads = 2499997515
+Tails = 2500002485
+Elapsed time: 22816 milliseconds
+Threads : 6
+Iterations : 6000000000
+Experiment : 1
+Startup time 2 milliseconds
+Heads = 3000002464
+Tails = 2999997536
+Elapsed time: 78444 milliseconds
+Experiment : 2
+Startup time 1 milliseconds
+Heads = 2999970054
+Tails = 3000029946
+Elapsed time: 83367 milliseconds
+Experiment : 3
+Startup time 2 milliseconds
+Heads = 2999904353
+Tails = 3000095647
+Elapsed time: 85209 milliseconds
+Experiment : 4
+Startup time 1 milliseconds
+Heads = 2999995789
+Tails = 3000004211
+Elapsed time: 87205 milliseconds
+Experiment : 5
+Startup time 2 milliseconds
+Heads = 2999971097
+Tails = 3000028903
+Elapsed time: 81928 milliseconds
+Threads : 7
+Iterations : 7000000000
+Experiment : 1
+Startup time 2 milliseconds
+Heads = 3499990430
+Tails = 3500009570
+Elapsed time: 128849 milliseconds
+Experiment : 2
+Startup time 2 milliseconds
+Heads = 3500124698
+Tails = 3499875302
+Elapsed time: 131535 milliseconds
+Experiment : 3
+Startup time 1 milliseconds
+Heads = 3500024330
+Tails = 3499975670
+Elapsed time: 127042 milliseconds
+Experiment : 4
+Startup time 2 milliseconds
+Heads = 3500041237
+Tails = 3499958763
+Elapsed time: 131580 milliseconds
+Experiment : 5
+Startup time 2 milliseconds
+Heads = 3499988449
+Tails = 3500011551
+Elapsed time: 124627 milliseconds
+Threads : 8
+Iterations : 8000000000
+Experiment : 1
+Startup time 2 milliseconds
+Heads = 4000000765
+Tails = 3999999235
+Elapsed time: 131130 milliseconds
+Experiment : 2
+Startup time 3 milliseconds
+Heads = 3999949124
+Tails = 4000050876
+Elapsed time: 125760 milliseconds
+Experiment : 3
+Startup time 3 milliseconds
+Heads = 4000008071
+Tails = 3999991929
+Elapsed time: 23174 milliseconds
+Experiment : 4
+Startup time 3 milliseconds
+Heads = 3999946838
+Tails = 4000053162
+Elapsed time: 124522 milliseconds
+Experiment : 5
+Startup time 2 milliseconds
+Heads = 4000049200
+Tails = 3999950800
+Elapsed time: 130070 milliseconds
+Threads : 9
+Iterations : 9000000000
+Experiment : 1
+Startup time 2 milliseconds
+Heads = 4499959248
+Tails = 4500040752
+Elapsed time: 118673 milliseconds
+Experiment : 2
+Startup time 3 milliseconds
+Heads = 4500026357
+Tails = 4499973643
+Elapsed time: 158480 milliseconds
+Experiment : 3
+Startup time 3 milliseconds
+Heads = 4500012780
+Tails = 4499987220
+Elapsed time: 153580 milliseconds
+Experiment : 4
+Startup time 2 milliseconds
+Heads = 4499960113
+Tails = 4500039887
+Elapsed time: 124561 milliseconds
+Experiment : 5
+Startup time 2 milliseconds
+Heads = 4500072673
+Tails = 4499927327
+Elapsed time: 125337 milliseconds
+Threads : 10
+Iterations : 10000000000
+Experiment : 1
+Startup time 5 milliseconds
+Heads = 5000041747
+Tails = 4999958253
+Elapsed time: 117602 milliseconds
+Experiment : 2
+Startup time 5 milliseconds
+Heads = 4999926594
+Tails = 5000073406
+Elapsed time: 124243 milliseconds
+Experiment : 3
+Startup time 5 milliseconds
+Heads = 5000028121
+Tails = 4999971879
+Elapsed time: 118215 milliseconds
+Experiment : 4
+Startup time 4 milliseconds
+Heads = 4999906537
+Tails = 5000093463
+Elapsed time: 109729 milliseconds
+Experiment : 5
+Startup time 4 milliseconds
+Heads = 5000033929
+Tails = 4999966071
+Elapsed time: 113948 milliseconds
+Threads : 11
+Iterations : 11000000000
+Experiment : 1
+Startup time 23 milliseconds
+Heads = 5499893083
+Tails = 5500106917
+Elapsed time: 107821 milliseconds
+Experiment : 2
+Startup time 19 milliseconds
+Heads = 5500022956
+Tails = 5499977044
+Elapsed time: 111586 milliseconds
+Experiment : 3
+Startup time 27 milliseconds
+Heads = 5499980835
+Tails = 5500019165
+Elapsed time: 110566 milliseconds
+Experiment : 4
+Startup time 11 milliseconds
+Heads = 5499985030
+Tails = 5500014970
+Elapsed time: 114285 milliseconds
+Experiment : 5
+Startup time 26 milliseconds
+Heads = 5499968926
+Tails = 5500031074
+Elapsed time: 105903 milliseconds
+Threads : 12
+Iterations : 12000000000
+Experiment : 1
+Startup time 40 milliseconds
+Heads = 6000088593
+Tails = 5999911407
+Elapsed time: 141734 milliseconds
+Experiment : 2
+Startup time 6 milliseconds
+Heads = 5999978313
+Tails = 6000021687
+Elapsed time: 114602 milliseconds
+Experiment : 3
+Startup time 37 milliseconds
+Heads = 5999876717
+Tails = 6000123283
+Elapsed time: 104465 milliseconds
+Experiment : 4
+Startup time 48 milliseconds
+Heads = 5999959244
+Tails = 6000040756
+Elapsed time: 119326 milliseconds
+Experiment : 5
+Startup time 5 milliseconds
+Heads = 5999977042
+Tails = 6000022958
+Elapsed time: 119579 milliseconds
+Threads : 13
+Iterations : 13000000000
+Experiment : 1
+Startup time 48 milliseconds
+Heads = 6500046496
+Tails = 6499953504
+Elapsed time: 111485 milliseconds
+Experiment : 2
+Startup time 21 milliseconds
+Heads = 6500008722
+Tails = 6499991278
+Elapsed time: 108688 milliseconds
+Experiment : 3
+Startup time 70 milliseconds
+Heads = 6500028719
+Tails = 6499971281
+Elapsed time: 102307 milliseconds
+Experiment : 4
+Startup time 92 milliseconds
+Heads = 6499915139
+Tails = 6500084861
+Elapsed time: 100857 milliseconds
+Experiment : 5
+Startup time 87 milliseconds
+Heads = 6499958712
+Tails = 6500041288
+Elapsed time: 139336 milliseconds
+Threads : 14
+Iterations : 14000000000
+Experiment : 1
+Startup time 19 milliseconds
+Heads = 6999969271
+Tails = 7000030729
+Elapsed time: 109307 milliseconds
+Experiment : 2
+Startup time 78 milliseconds
+Heads = 6999955470
+Tails = 7000044530
+Elapsed time: 108713 milliseconds
+Experiment : 3
+Startup time 79 milliseconds
+Heads = 7000009807
+Tails = 6999990193
+Elapsed time: 95731 milliseconds
+Experiment : 4
+Startup time 113 milliseconds
+Heads = 7000002794
+Tails = 6999997206
+Elapsed time: 101989 milliseconds
+Experiment : 5
+Startup time 130 milliseconds
+Heads = 7000038143
+Tails = 6999961857
+Elapsed time: 108356 milliseconds
+Threads : 15
+Iterations : 15000000000
+Experiment : 1
+Startup time 74 milliseconds
+Heads = 7499987431
+Tails = 7500012569
+Elapsed time: 108607 milliseconds
+Experiment : 2
+Startup time 88 milliseconds
+Heads = 7499920986
+Tails = 7500079014
+Elapsed time: 104653 milliseconds
+Experiment : 3
+Startup time 92 milliseconds
+Heads = 7499983478
+Tails = 7500016522
+Elapsed time: 130019 milliseconds
+Experiment : 4
+Startup time 144 milliseconds
+Heads = 7500055869
+Tails = 7499944131
+Elapsed time: 130108 milliseconds
+Experiment : 5
+Startup time 99 milliseconds
+Heads = 7500053657
+Tails = 7499946343
+Elapsed time: 97171 milliseconds
+Threads : 16
+Iterations : 16000000000
+Experiment : 1
+Startup time 132 milliseconds
+Heads = 8000102145
+Tails = 7999897855
+Elapsed time: 92427 milliseconds
+Experiment : 2
+Startup time 131 milliseconds
+Heads = 8000072669
+Tails = 7999927331
+Elapsed time: 102833 milliseconds
+Experiment : 3
+Startup time 136 milliseconds
+Heads = 8000060451
+Tails = 7999939549
+Elapsed time: 104866 milliseconds
+Experiment : 4
+Startup time 120 milliseconds
+Heads = 8000002650
+Tails = 7999997350
+Elapsed time: 102198 milliseconds
+Experiment : 5
+Startup time 135 milliseconds
+Heads = 8000000787
+Tails = 7999999213
+Elapsed time: 98106 milliseconds
